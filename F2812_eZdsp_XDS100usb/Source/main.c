@@ -14,12 +14,12 @@
 
 #include "DSP281x_Device.h"
 
-
+#include "DSP281x_GlobalPrototypes.h"       //por algun motivo estan aqui las declaraciones de las funciones "extern" todas juntas y no en sus respectivos .h
+#include "CITCEA.h"                         //para usar dummy1
 // Prototype statements for functions found within this file.
 
 void main(void)
 {
-    int i=0;
 
 // Step 1. Initialize System Control registers, PLL, WatchDog, Clocks to default state:
     // This function is found in the DSP28_SysCtrl.c file.
@@ -62,12 +62,16 @@ void main(void)
 //  EINT;   // Enable Global interrupt INTM
 //  ERTM;     // Enable Global realtime interrupt DBGM
 
-
-
 // Step 6. IDLE loop. Just sit and loop forever (optional):
     for(;;)
     {
-        i++;
+        GpioDataRegs.GPFTOGGLE.bit.GPIOF14=0x1;
+
+        int32 i,j;
+        for ( i = 0;  i < 0xFFFF; ++ i) {
+            for ( j = 0;  j < 0xF; ++ j) {
+            };
+        };
     }
 
 }

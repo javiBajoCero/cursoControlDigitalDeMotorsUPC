@@ -1,5 +1,5 @@
 
 // Definició d'estructures i variables globals
-extern int dummy1;
+extern long  dummy1;
 
 
