@@ -63,22 +63,21 @@ void main(void)
 //  ERTM;     // Enable Global realtime interrupt DBGM
 
 // Step 6. IDLE loop. Just sit and loop forever (optional):
+int16 variable=0,i=0,numberofbits=4;
 
     for(;;)
     {
-        int16 i;
-        for ( i = 5; i <= 8; ++i) {
-            allGPIOSloff();
-            turnSingleLEDon(i);
-            delay(0xF);
+        isGPB4Buttonpresed_incrementVariable(&variable);
+
+        for (i = 0; i < numberofbits; ++i) {
+            if(checkbit(variable,i)){
+              turnSingleLEDon(i);
+            }else{
+              turnSingleLEDoff(i);
+            }
         }
 
-        for ( i = 8; i >= 5; --i) {
-            allGPIOSloff();
-            turnSingleLEDon(i);
-            delay(0xF);
-        }
-
+        delay(0xF);
     }
 
 }

@@ -36,14 +36,15 @@ void InitGpio(void)
      GpioMuxRegs.GPBMUX.all=0x0000;
      GpioMuxRegs.GPBDIR.bit.GPIOB2=1;        // 1=output
      GpioMuxRegs.GPBDIR.bit.GPIOB3=1;        // 1=output
-     GpioMuxRegs.GPBQUAL.all=0x0000;	// Input qualifier disabled //TODO (Filtro de ruido)?
+     GpioMuxRegs.GPBDIR.bit.GPIOB4=0;        // 0=input
+     GpioMuxRegs.GPBQUAL.bit.QUALPRD=8;	// Input qualifier enabled with period 8
      GpioDataRegs.GPBCLEAR.bit.GPIOB2=0x1;
      GpioDataRegs.GPBCLEAR.bit.GPIOB3=0x1;
      ////GPIO E CONFIG
      GpioMuxRegs.GPEMUX.all=0x0000;
      GpioMuxRegs.GPEDIR.bit.GPIOE0=1;        // 1=output
      GpioMuxRegs.GPEDIR.bit.GPIOE1=1;        // 1=output
-     GpioMuxRegs.GPEQUAL.all=0x0000;    // Input qualifier disabled //TODO (Filtro de ruido)?
+     GpioMuxRegs.GPEQUAL.all=0x0000;    // Input qualifier disabled
      GpioDataRegs.GPECLEAR.bit.GPIOE0=0x1;
      GpioDataRegs.GPECLEAR.bit.GPIOE1=0x1;
 

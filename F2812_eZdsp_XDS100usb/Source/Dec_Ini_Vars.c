@@ -32,23 +32,64 @@ void allGPIOSon(void){
 }
 
 
-//enciende todos los LEDS
+//enciende solo un LED
 void turnSingleLEDon(int16 lednumber){
-switch (lednumber) {
-    case 5:
-        GpioDataRegs.GPESET.bit.GPIOE0=0x1;
-        break;
-    case 6:
-        GpioDataRegs.GPESET.bit.GPIOE1=0x1;
-        break;
-    case 7:
-        GpioDataRegs.GPBSET.bit.GPIOB2=0x1;
-        break;
-    case 8:
-        GpioDataRegs.GPBSET.bit.GPIOB3=0x1;
-        break;
+    switch (lednumber) {
+        case 0:
+            GpioDataRegs.GPESET.bit.GPIOE0=0x1;
+            break;
+        case 1:
+            GpioDataRegs.GPESET.bit.GPIOE1=0x1;
+            break;
+        case 2:
+            GpioDataRegs.GPBSET.bit.GPIOB2=0x1;
+            break;
+        case 3:
+            GpioDataRegs.GPBSET.bit.GPIOB3=0x1;
+            break;
 
-    default:
-        break;
+        default:
+            break;
+    }
 }
+
+//enciende solo un LED
+void turnSingleLEDoff(int16 lednumber){
+    switch (lednumber) {
+        case 0:
+            GpioDataRegs.GPECLEAR.bit.GPIOE0=0x1;
+            break;
+        case 1:
+            GpioDataRegs.GPECLEAR.bit.GPIOE1=0x1;
+            break;
+        case 2:
+            GpioDataRegs.GPBCLEAR.bit.GPIOB2=0x1;
+            break;
+        case 3:
+            GpioDataRegs.GPBCLEAR.bit.GPIOB3=0x1;
+            break;
+
+        default:
+            break;
+    }
+}
+
+// returns 1 if the bit number (bitnumber) from the variable (variabletocheck) is set, 0 otherwise.
+int16 checkbit(int16 variabletocheck,int16 bitnumber){
+    if(((1<<bitnumber)&variabletocheck)==(1<<bitnumber)){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+
+//necesita un puntero a una variable de 8 bits, si detecta que el boton GPIOB4 se pulsó, incrementa +1.
+void isGPB4Buttonpresed_incrementVariable(int16 * variable){
+    if(GpioDataRegs.GPBDAT.bit.GPIOB4==0x00){//0x00 significa botón presionado (botón con pullup activo en low)
+        *variable+=1;
+    }
+
+    if(*variable>15){//rollover de 0 a 15
+        *variable=0;
+    }
 }
