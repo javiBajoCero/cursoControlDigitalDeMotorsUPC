@@ -63,15 +63,22 @@ void main(void)
 //  ERTM;     // Enable Global realtime interrupt DBGM
 
 // Step 6. IDLE loop. Just sit and loop forever (optional):
+
     for(;;)
     {
-        GpioDataRegs.GPFTOGGLE.bit.GPIOF14=0x1;
-        GpioDataRegs.GPETOGGLE.bit.GPIOE0=0x1;
-        GpioDataRegs.GPETOGGLE.bit.GPIOE1=0x1;
-        GpioDataRegs.GPBTOGGLE.bit.GPIOB2=0x1;
-        GpioDataRegs.GPBTOGGLE.bit.GPIOB3=0x1;
+        int16 i;
+        for ( i = 5; i <= 8; ++i) {
+            allGPIOSloff();
+            turnSingleLEDon(i);
+            delay(0xF);
+        }
 
-        delay(0xF);
+        for ( i = 8; i >= 5; --i) {
+            allGPIOSloff();
+            turnSingleLEDon(i);
+            delay(0xF);
+        }
+
     }
 
 }
