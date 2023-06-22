@@ -116,6 +116,9 @@ typedef long double         float64;
 #include "DSP281x_Adc.h"                // ADC Registers
 #include "DSP281x_XIntrupt.h"           // External Interrupts
 
+#include "DSP281x_GlobalPrototypes.h"    //añadido
+
+
 #ifdef __cplusplus
 }
 #endif /* extern "C" */

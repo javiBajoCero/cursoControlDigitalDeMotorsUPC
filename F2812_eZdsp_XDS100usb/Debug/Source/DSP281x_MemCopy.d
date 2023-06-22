@@ -16,6 +16,7 @@ Source/DSP281x_MemCopy.obj: C:/Users/citcea/Documents/GitHub/cursoControlDigital
 Source/DSP281x_MemCopy.obj: C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS100usb/Includes/DSP281x_Ev.h
 Source/DSP281x_MemCopy.obj: C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS100usb/Includes/DSP281x_Adc.h
 Source/DSP281x_MemCopy.obj: C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS100usb/Includes/DSP281x_XIntrupt.h
+Source/DSP281x_MemCopy.obj: C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS100usb/Includes/DSP281x_GlobalPrototypes.h
 
 ../Source/DSP281x_MemCopy.c:
 
@@ -48,4 +49,6 @@ C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS1
 C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS100usb/Includes/DSP281x_Adc.h:
 
 C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS100usb/Includes/DSP281x_XIntrupt.h:
+
+C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS100usb/Includes/DSP281x_GlobalPrototypes.h:
 
