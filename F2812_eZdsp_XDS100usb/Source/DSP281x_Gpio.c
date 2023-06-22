@@ -32,11 +32,31 @@ void InitGpio(void)
 // Set GPIO B port pins, configured as EVB signals //TODO:EVB?
 // Input Qualifier =0, none
 // Set bits to 1 to configure peripherals signals on the pins
-     GpioMuxRegs.GPBMUX.all=0xFFFF;   
+     ////GPIO B CONFIG
+     GpioMuxRegs.GPBMUX.all=0x0000;
+     GpioMuxRegs.GPBDIR.bit.GPIOB2=1;        // 1=output
+     GpioMuxRegs.GPBDIR.bit.GPIOB3=1;        // 1=output
      GpioMuxRegs.GPBQUAL.all=0x0000;	// Input qualifier disabled //TODO (Filtro de ruido)?
+     GpioDataRegs.GPBCLEAR.bit.GPIOB2=0x1;
+     GpioDataRegs.GPBCLEAR.bit.GPIOB3=0x1;
+     ////GPIO E CONFIG
+     GpioMuxRegs.GPEMUX.all=0x0000;
+     GpioMuxRegs.GPEDIR.bit.GPIOE0=1;        // 1=output
+     GpioMuxRegs.GPEDIR.bit.GPIOE1=1;        // 1=output
+     GpioMuxRegs.GPEQUAL.all=0x0000;    // Input qualifier disabled //TODO (Filtro de ruido)?
+     GpioDataRegs.GPECLEAR.bit.GPIOE0=0x1;
+     GpioDataRegs.GPECLEAR.bit.GPIOE1=0x1;
 
+     ////GPIO F CONFIG
      GpioMuxRegs.GPFMUX.all=0x0000;
      GpioMuxRegs.GPFDIR.bit.GPIOF14=1;        // 1=output
+     GpioDataRegs.GPFCLEAR.bit.GPIOF14=0x1;
+
+
+
+
+
+
      EDIS;
 
 }	

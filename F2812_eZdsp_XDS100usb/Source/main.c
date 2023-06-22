@@ -66,12 +66,12 @@ void main(void)
     for(;;)
     {
         GpioDataRegs.GPFTOGGLE.bit.GPIOF14=0x1;
+        GpioDataRegs.GPETOGGLE.bit.GPIOE0=0x1;
+        GpioDataRegs.GPETOGGLE.bit.GPIOE1=0x1;
+        GpioDataRegs.GPBTOGGLE.bit.GPIOB2=0x1;
+        GpioDataRegs.GPBTOGGLE.bit.GPIOB3=0x1;
 
-        int32 i,j;
-        for ( i = 0;  i < 0xFFFF; ++ i) {
-            for ( j = 0;  j < 0xF; ++ j) {
-            };
-        };
+        delay(0xF);
     }
 
 }
