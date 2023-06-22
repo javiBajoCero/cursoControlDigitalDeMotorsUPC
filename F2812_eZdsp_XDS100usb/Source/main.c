@@ -69,7 +69,8 @@ void main(void)
 
        // ejercicio1_ledblink();
        //ejercicio2_cochefantastico();
-       ejercicio3_contadorbinarioboton();
+       //ejercicio3_contadorbinarioboton();
+        ejercicio4_secretpassword();
     }
 
 }

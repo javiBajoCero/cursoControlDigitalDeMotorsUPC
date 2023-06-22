@@ -123,15 +123,26 @@ void isGPB4Buttonpresed_incrementVariable(int16 * variable){
 void isGPB4Buttonpresed_setnewpassword(){
     if(S1button_activelow==0x00){//0x00 significa botón presionado (botón con pullup activo en low)
         secretpassword=
-                +(0<<GpioDataRegs.GPBDAT.bit.GPIOB5)
-                +(1<<GpioDataRegs.GPBDAT.bit.GPIOB6)
-                +(2<<GpioDataRegs.GPBDAT.bit.GPIOB7);
+                +((!S3_1redswitch)<<2)
+                +((!S3_2redswitch)<<1)
+                +((!S3_3redswitch)<<0);
     }
 
 }
 
 //si el estado de S3 se corresponde con "secretpassword" , enciende un LED
 void issecretpassowrdCorrect(){
+    int16 switchstate;
+     switchstate=
+                 +((!S3_1redswitch)<<2)
+                 +((!S3_2redswitch)<<1)
+                 +((!S3_3redswitch)<<0);
+
+    if(switchstate==secretpassword){
+        turnSingleLEDon(0);
+    }else{
+        turnSingleLEDoff(0);
+    }
 
 
 }
@@ -190,7 +201,15 @@ void ejercicio3_contadorbinarioboton(){
     delay(0xF);
 }
 
-
+//Create a unique setting (password) of the switch inputs (SW3_1, SW3_2, SW3_3) to
+//swith on one LED. Allow to change the password when the pushbutton (S1) is down,
+//save the current SW3 setting as new code.
+void ejercicio4_secretpassword(void){
+    isGPB4Buttonpresed_setnewpassword();
+    delay(0x2);
+    issecretpassowrdCorrect();
+    delay(0x2);
+}
 
 
 
