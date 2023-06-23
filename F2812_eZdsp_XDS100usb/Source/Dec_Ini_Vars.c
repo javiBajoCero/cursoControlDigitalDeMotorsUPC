@@ -77,7 +77,7 @@ void turnSingleLEDon(int16 lednumber){
     }
 }
 
-//enciende solo un LED
+//apaga solo un LED
 void turnSingleLEDoff(int16 lednumber){
     switch (lednumber) {
         case 0:
@@ -108,9 +108,9 @@ int16 checkbit(int16 variabletocheck,int16 bitnumber){
     }
 }
 
-//necesita un puntero a una variable de 8 bits, si detecta que el boton GPIOB4 se pulsó, incrementa +1.
+//necesita un puntero a una variable de 8 bits, si detecta que el boton GPIOB4 se pulsÃ³, incrementa +1.
 void isGPB4Buttonpresed_incrementVariable(int16 * variable){
-    if(S1button_activelow==0x00){//0x00 significa botón presionado (botón con pullup activo en low)
+    if(S1button_activelow==0x00){//0x00 significa botÃ³n presionado (botÃ³n con pullup activo en low)
         *variable+=1;
     }
 
@@ -121,7 +121,7 @@ void isGPB4Buttonpresed_incrementVariable(int16 * variable){
 
 //si el boton S1 es activado, se guarda el estado de S3 en "secretpassword"
 void isGPB4Buttonpresed_setnewpassword(){
-    if(S1button_activelow==0x00){//0x00 significa botón presionado (botón con pullup activo en low)
+    if(S1button_activelow==0x00){//0x00 significa botÃ³n presionado (botÃ³n con pullup activo en low)
         secretpassword=
                 +((!S3_1redswitch)<<2)
                 +((!S3_2redswitch)<<1)
@@ -159,7 +159,7 @@ void ejercicio1_ledblink(void){
 
 
 //Generate a LED sequence with the 4 available LEDS in the AROM board (GPIOB3,
-//GPIOB2, GPIOE0, GPIOE1) from right to left and left to right (“Knight Rider”).
+//GPIOB2, GPIOE0, GPIOE1) from right to left and left to right (â€œKnight Riderâ€).
 
 void ejercicio2_cochefantastico(void){
 
