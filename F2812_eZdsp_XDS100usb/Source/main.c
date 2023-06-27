@@ -67,10 +67,10 @@ void main(void)
     for(;;)
     {
 
-       // ejercicio1_ledblink();
-       //ejercicio2_cochefantastico();
+       //ejercicio1_ledblink();
+       ejercicio2_cochefantastico();
        //ejercicio3_contadorbinarioboton();
-        ejercicio4_secretpassword();
+       //ejercicio4_secretpassword();
     }
 
 }

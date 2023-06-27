@@ -194,18 +194,18 @@ void InitPeripheralClocks(void)
 {
    EALLOW;
 // HISPCP/LOSPCP prescale register settings, normally it will be set to default values
-   SysCtrlRegs.HISPCP.all = 0x0001;
-   SysCtrlRegs.LOSPCP.all = 0x0002;
+   SysCtrlRegs.HISPCP.all = 0x0003;//150/6=25
+   SysCtrlRegs.LOSPCP.all = 0x0004;//150/8=18.75
 
 // Peripheral clock enables set for the selected peripherals.
-   SysCtrlRegs.PCLKCR.bit.EVAENCLK=1;
-   SysCtrlRegs.PCLKCR.bit.EVBENCLK=1;
-   SysCtrlRegs.PCLKCR.bit.SCIAENCLK=1;
-   SysCtrlRegs.PCLKCR.bit.SCIBENCLK=1;
-   SysCtrlRegs.PCLKCR.bit.MCBSPENCLK=1;
-   SysCtrlRegs.PCLKCR.bit.SPIENCLK=1;
-   SysCtrlRegs.PCLKCR.bit.ECANENCLK=1;
-   SysCtrlRegs.PCLKCR.bit.ADCENCLK=1;
+   SysCtrlRegs.PCLKCR.bit.EVAENCLK=0;//1 enable - 0 disable
+   SysCtrlRegs.PCLKCR.bit.EVBENCLK=0;
+   SysCtrlRegs.PCLKCR.bit.SCIAENCLK=0;
+   SysCtrlRegs.PCLKCR.bit.SCIBENCLK=0;
+   SysCtrlRegs.PCLKCR.bit.MCBSPENCLK=0;
+   SysCtrlRegs.PCLKCR.bit.SPIENCLK=0;
+   SysCtrlRegs.PCLKCR.bit.ECANENCLK=0;
+   SysCtrlRegs.PCLKCR.bit.ADCENCLK=0;
    EDIS;
 }
 
