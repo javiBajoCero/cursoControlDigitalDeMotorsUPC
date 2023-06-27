@@ -23,6 +23,12 @@
 #define RESET_LED7 (GpioDataRegs.GPBCLEAR.bit.GPIOB2=0x1)
 #define RESET_LED8 (GpioDataRegs.GPBCLEAR.bit.GPIOB3=0x1)
 
+//toggle LED
+#define TOGGLE_onboardLED   (GpioDataRegs.GPFTOGGLE.bit.GPIOF14=0x01)
+#define TOGGLE_LED5         (GpioDataRegs.GPETOGGLE.bit.GPIOE0=0x01)
+#define TOGGLE_LED6         (GpioDataRegs.GPETOGGLE.bit.GPIOE1=0x01)
+#define TOGGLE_LED7         (GpioDataRegs.GPBTOGGLE.bit.GPIOB2=0x01)
+#define TOGGLE_LED8         (GpioDataRegs.GPBTOGGLE.bit.GPIOB3=0x01)
 
 int16 dummy1 = 0;
 int16 secretpassword=0;
@@ -108,9 +114,9 @@ int16 checkbit(int16 variabletocheck,int16 bitnumber){
     }
 }
 
-//necesita un puntero a una variable de 8 bits, si detecta que el boton GPIOB4 se pulsó, incrementa +1.
+//necesita un puntero a una variable de 8 bits, si detecta que el boton GPIOB4 se pulsÃ³, incrementa +1.
 void isGPB4Buttonpresed_incrementVariable(int16 * variable){
-    if(S1button_activelow==0x00){//0x00 significa botón presionado (botón con pullup activo en low)
+    if(S1button_activelow==0x00){//0x00 significa botÃ³n presionado (botÃ³n con pullup activo en low)
         *variable+=1;
     }
 
@@ -121,7 +127,7 @@ void isGPB4Buttonpresed_incrementVariable(int16 * variable){
 
 //si el boton S1 es activado, se guarda el estado de S3 en "secretpassword"
 void isGPB4Buttonpresed_setnewpassword(){
-    if(S1button_activelow==0x00){//0x00 significa botón presionado (botón con pullup activo en low)
+    if(S1button_activelow==0x00){//0x00 significa botÃ³n presionado (botÃ³n con pullup activo en low)
         secretpassword=
                 +((!S3_1redswitch)<<2)
                 +((!S3_2redswitch)<<1)
@@ -159,7 +165,7 @@ void ejercicio1_ledblink(void){
 
 
 //Generate a LED sequence with the 4 available LEDS in the AROM board (GPIOB3,
-//GPIOB2, GPIOE0, GPIOE1) from right to left and left to right (“Knight Rider”).
+//GPIOB2, GPIOE0, GPIOE1) from right to left and left to right (â€œKnight Riderâ€�).
 
 void ejercicio2_cochefantastico(void){
 
@@ -211,6 +217,38 @@ void ejercicio4_secretpassword(void){
     delay(0x2);
 }
 
+//tim0 INTERRUPT ROUTINE
+interrupt void interrupt_timer0(void){
+    TOGGLE_LED8;
+PieCtrlRegs.PIEACK.bit.ACK1=1;
+}
+
+
+//ENABLES INTERRUPTS AND INITIALICES TIM0
+void enableinterruptTIM0(void){
+    //Enable the peripheral interrupcion del tim0 es INT1.7
+    ConfigCpuTimer(&CpuTimer0, 100, 2000000);
+    //Disable global interrupts
+    DINT;
+    //Disable all interrupts
+    IER=0x0000;
+    //Clear all CPU flags
+    IFR=0x0000;
+    //Address the interrupt vector to the desired function
+    EALLOW;
+    PieVectTable.TINT0 = &interrupt_timer0;
+    EDIS;
+    //Enable interrupt Y of group X.
+    PieCtrlRegs.PIEIER1.bit.INTx7=1;//1=enable 0=disable
+    //Enable group X of interrupts:
+    IER |= M_INT1;
+    // Enable global interrupts:
+    EINT;
+    //Allow next interrupt service (write before leaving the interruption routine)
+    PieCtrlRegs.PIEACK.bit.ACK1=1;
+    //arranca el timer
+    StartCpuTimer0();
+}
 
 
 

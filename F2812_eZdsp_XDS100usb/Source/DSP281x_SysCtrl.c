@@ -198,8 +198,8 @@ void InitPeripheralClocks(void)
    SysCtrlRegs.LOSPCP.all = 0x0004;//150/8=18.75
 
 // Peripheral clock enables set for the selected peripherals.
-   SysCtrlRegs.PCLKCR.bit.EVAENCLK=0;//1 enable - 0 disable
-   SysCtrlRegs.PCLKCR.bit.EVBENCLK=0;
+   SysCtrlRegs.PCLKCR.bit.EVAENCLK=1;//1 enable - 0 disable
+   SysCtrlRegs.PCLKCR.bit.EVBENCLK=1;
    SysCtrlRegs.PCLKCR.bit.SCIAENCLK=0;
    SysCtrlRegs.PCLKCR.bit.SCIBENCLK=0;
    SysCtrlRegs.PCLKCR.bit.MCBSPENCLK=0;

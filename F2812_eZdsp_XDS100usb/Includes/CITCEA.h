@@ -16,3 +16,6 @@ void ejercicio1_ledblink(void);
 void ejercicio2_cochefantastico(void);
 void ejercicio3_contadorbinarioboton(void);
 void ejercicio4_secretpassword(void);
+
+interrupt void interrupt_timer0(void);
+void enableinterruptTIM0(void);

@@ -63,12 +63,13 @@ void main(void)
 //  ERTM;     // Enable Global realtime interrupt DBGM
 
 // Step 6. IDLE loop. Just sit and loop forever (optional):
+    enableinterruptTIM0();
 
     for(;;)
     {
 
        //ejercicio1_ledblink();
-       ejercicio2_cochefantastico();
+       //ejercicio2_cochefantastico();
        //ejercicio3_contadorbinarioboton();
        //ejercicio4_secretpassword();
     }
