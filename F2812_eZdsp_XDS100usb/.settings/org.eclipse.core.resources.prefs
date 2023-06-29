@@ -1,4 +1,6 @@
 eclipse.preferences.version=1
+encoding//Debug/Libraries/subdir_rules.mk=UTF-8
+encoding//Debug/Libraries/subdir_vars.mk=UTF-8
 encoding//Debug/Linker\ command\ files/subdir_rules.mk=UTF-8
 encoding//Debug/Linker\ command\ files/subdir_vars.mk=UTF-8
 encoding//Debug/Source/subdir_rules.mk=UTF-8
@@ -9,3 +11,4 @@ encoding//Debug/sources.mk=UTF-8
 encoding//Debug/subdir_rules.mk=UTF-8
 encoding//Debug/subdir_vars.mk=UTF-8
 encoding//Source/Dec_Ini_Vars.c=UTF-8
+encoding//Source/Funciones_Extres.c=UTF-8

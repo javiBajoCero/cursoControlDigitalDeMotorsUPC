@@ -32,7 +32,7 @@ typedef struct
 	DAC_Struct 	B;
 	DAC_Struct 	C;
 	DAC_Struct 	D;
-	int			nDAC;
+	int			nDAC;//POR SUPUESTO QUE NO ESTÄ COMENTADO NADA
 } DAC_tipus;
 
 typedef DAC_tipus *DAC_handle;

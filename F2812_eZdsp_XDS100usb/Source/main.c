@@ -14,8 +14,7 @@
 
 #include "DSP281x_Device.h"
 
-#include "DSP281x_GlobalPrototypes.h"       //por algun motivo estan aqui las declaraciones de las funciones "extern" todas juntas y no en sus respectivos .h
-#include "CITCEA.h"                         //para usar dummy1
+
 // Prototype statements for functions found within this file.
 
 void main(void)
@@ -54,6 +53,7 @@ void main(void)
     // This function is found in DSP28_InitPeripherals.c
     // InitPeripherals();  // For this example just init the CPU Timers
     InitCpuTimers();
+    enableinterruptTIM0(1000);//1ms = 1 kHz
 
 // Step 5. User specific functions, Reassign vectors (optional), Enable Interrupts:
     //InitAdc();    // Inicialitzo el ADC
@@ -64,7 +64,10 @@ void main(void)
 
 // Step 6. IDLE loop. Just sit and loop forever (optional):
     //enableinterruptTIM0(2000000);//2 seconds =0,5Hz
-    enableinterruptTIM0(1000);//1ms = 1 Khz
+    setupForDACexercice();
+
+
+
 
     for(;;)
     {

@@ -115,7 +115,12 @@ typedef long double         float64;
 #include "DSP281x_Ev.h"                 // Event Manager Registers
 #include "DSP281x_Adc.h"                // ADC Registers
 #include "DSP281x_XIntrupt.h"           // External Interrupts
+#include "DSP281x_GlobalPrototypes.h"       //por algun motivo estan aqui las declaraciones de las funciones "extern" todas juntas y no en sus respectivos .h
 
+#include "IQmathLib.h"
+#include "DAC.h"
+
+#include "CITCEA.h"                         //para usar dummy1
 
 
 #ifdef __cplusplus

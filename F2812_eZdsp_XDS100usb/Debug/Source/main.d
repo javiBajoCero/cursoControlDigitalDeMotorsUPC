@@ -17,6 +17,11 @@ Source/main.obj: C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC
 Source/main.obj: C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS100usb/Includes/DSP281x_Adc.h
 Source/main.obj: C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS100usb/Includes/DSP281x_XIntrupt.h
 Source/main.obj: C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS100usb/Includes/DSP281x_GlobalPrototypes.h
+Source/main.obj: C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS100usb/Includes/IQmathLib.h
+Source/main.obj: C:/ti/ccs1230/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/limits.h
+Source/main.obj: C:/ti/ccs1230/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/_ti_config.h
+Source/main.obj: C:/ti/ccs1230/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/linkage.h
+Source/main.obj: C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS100usb/Includes/DAC.h
 Source/main.obj: C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS100usb/Includes/CITCEA.h
 
 ../Source/main.c:
@@ -52,6 +57,16 @@ C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS1
 C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS100usb/Includes/DSP281x_XIntrupt.h:
 
 C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS100usb/Includes/DSP281x_GlobalPrototypes.h:
+
+C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS100usb/Includes/IQmathLib.h:
+
+C:/ti/ccs1230/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/limits.h:
+
+C:/ti/ccs1230/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/_ti_config.h:
+
+C:/ti/ccs1230/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/linkage.h:
+
+C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS100usb/Includes/DAC.h:
 
 C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS100usb/Includes/CITCEA.h:
 

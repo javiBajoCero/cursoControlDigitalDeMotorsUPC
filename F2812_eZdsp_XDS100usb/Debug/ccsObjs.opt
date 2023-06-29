@@ -20,7 +20,10 @@
 "./Source/DSP281x_Xintf.obj"
 "./Source/DSP281x_usDelay.obj"
 "./Source/Dec_Ini_Vars.obj"
+"./Source/Funciones_Extres.obj"
+"./Source/Interrupt_Timer0.obj"
 "./Source/main.obj"
+"../Libraries/IQmath.lib"
+"../Linker command files/2812_IQmath_lnk.cmd"
 "../Linker command files/DSP281x_Headers_nonBIOS.cmd"
-"../Linker command files/F2812_EzDSP_RAM_lnk.cmd"
 -llibc.a
