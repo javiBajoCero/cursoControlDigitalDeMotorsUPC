@@ -1,3 +1,4 @@
+"./Source/DAC.obj"
 "./Source/DSP281x_Adc.obj"
 "./Source/DSP281x_CodeStartBranch.obj"
 "./Source/DSP281x_CpuTimers.obj"

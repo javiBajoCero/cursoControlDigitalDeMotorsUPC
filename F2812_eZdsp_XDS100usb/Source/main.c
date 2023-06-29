@@ -63,7 +63,8 @@ void main(void)
 //  ERTM;     // Enable Global realtime interrupt DBGM
 
 // Step 6. IDLE loop. Just sit and loop forever (optional):
-    enableinterruptTIM0();
+    //enableinterruptTIM0(2000000);//2 seconds =0,5Hz
+    enableinterruptTIM0(1000);//1ms = 1 Khz
 
     for(;;)
     {

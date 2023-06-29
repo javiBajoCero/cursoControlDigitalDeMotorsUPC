@@ -1,7 +1,9 @@
 //Variables initialization
 #include "DSP281x_Device.h"
 
+#include "DAC.h"
 
+#define TIMER0clockfreq 150 //Mhz
 
 //Leer GPIOS
 #define S1button_activelow (GpioDataRegs.GPBDAT.bit.GPIOB4)
@@ -224,10 +226,10 @@ PieCtrlRegs.PIEACK.bit.ACK1=1;
 }
 
 
-//ENABLES INTERRUPTS AND INITIALICES TIM0
-void enableinterruptTIM0(void){
+//ENABLES INTERRUPTS AND INITIALICES TIM0 with interruption period as an argument in microseonds
+void enableinterruptTIM0(float period){
     //Enable the peripheral interrupcion del tim0 es INT1.7
-    ConfigCpuTimer(&CpuTimer0, 100, 2000000);
+    ConfigCpuTimer(&CpuTimer0, TIMER0clockfreq, period);
     //Disable global interrupts
     DINT;
     //Disable all interrupts
@@ -249,6 +251,7 @@ void enableinterruptTIM0(void){
     //arranca el timer
     StartCpuTimer0();
 }
+
 
 
 

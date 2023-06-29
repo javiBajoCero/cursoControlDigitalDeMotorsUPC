@@ -11,6 +11,7 @@ ASM_SRCS += \
 ../Source/DSP281x_usDelay.asm 
 
 C_SRCS += \
+../Source/DAC.c \
 ../Source/DSP281x_Adc.c \
 ../Source/DSP281x_CpuTimers.c \
 ../Source/DSP281x_DefaultIsr.c \
@@ -32,6 +33,7 @@ C_SRCS += \
 ../Source/main.c 
 
 C_DEPS += \
+./Source/DAC.d \
 ./Source/DSP281x_Adc.d \
 ./Source/DSP281x_CpuTimers.d \
 ./Source/DSP281x_DefaultIsr.d \
@@ -53,6 +55,7 @@ C_DEPS += \
 ./Source/main.d 
 
 OBJS += \
+./Source/DAC.obj \
 ./Source/DSP281x_Adc.obj \
 ./Source/DSP281x_CodeStartBranch.obj \
 ./Source/DSP281x_CpuTimers.obj \
@@ -82,6 +85,7 @@ ASM_DEPS += \
 ./Source/DSP281x_usDelay.d 
 
 OBJS__QUOTED += \
+"Source\DAC.obj" \
 "Source\DSP281x_Adc.obj" \
 "Source\DSP281x_CodeStartBranch.obj" \
 "Source\DSP281x_CpuTimers.obj" \
@@ -106,6 +110,7 @@ OBJS__QUOTED += \
 "Source\main.obj" 
 
 C_DEPS__QUOTED += \
+"Source\DAC.d" \
 "Source\DSP281x_Adc.d" \
 "Source\DSP281x_CpuTimers.d" \
 "Source\DSP281x_DefaultIsr.d" \
@@ -132,6 +137,7 @@ ASM_DEPS__QUOTED += \
 "Source\DSP281x_usDelay.d" 
 
 C_SRCS__QUOTED += \
+"../Source/DAC.c" \
 "../Source/DSP281x_Adc.c" \
 "../Source/DSP281x_CpuTimers.c" \
 "../Source/DSP281x_DefaultIsr.c" \

@@ -16,6 +16,7 @@ Source/Dec_Ini_Vars.obj: C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeM
 Source/Dec_Ini_Vars.obj: C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS100usb/Includes/DSP281x_Ev.h
 Source/Dec_Ini_Vars.obj: C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS100usb/Includes/DSP281x_Adc.h
 Source/Dec_Ini_Vars.obj: C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS100usb/Includes/DSP281x_XIntrupt.h
+Source/Dec_Ini_Vars.obj: C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS100usb/Includes/DAC.h
 
 ../Source/Dec_Ini_Vars.c:
 
@@ -48,4 +49,6 @@ C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS1
 C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS100usb/Includes/DSP281x_Adc.h:
 
 C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS100usb/Includes/DSP281x_XIntrupt.h:
+
+C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS100usb/Includes/DAC.h:
 

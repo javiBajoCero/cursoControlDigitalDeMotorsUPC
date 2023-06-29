@@ -10,6 +10,7 @@ GEN_OPTS__FLAG :=
 GEN_CMDS__FLAG := 
 
 ORDERED_OBJS += \
+"./Source/DAC.obj" \
 "./Source/DSP281x_Adc.obj" \
 "./Source/DSP281x_CodeStartBranch.obj" \
 "./Source/DSP281x_CpuTimers.obj" \
@@ -165,8 +166,8 @@ F2812_eZdsp_XDS100usb.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 # Other Targets
 clean:
 	-$(RM) $(EXE_OUTPUTS__QUOTED)
-	-$(RM) "Source\DSP281x_Adc.obj" "Source\DSP281x_CodeStartBranch.obj" "Source\DSP281x_CpuTimers.obj" "Source\DSP281x_DBGIER.obj" "Source\DSP281x_DefaultIsr.obj" "Source\DSP281x_ECan.obj" "Source\DSP281x_Ev.obj" "Source\DSP281x_GlobalVariableDefs.obj" "Source\DSP281x_Gpio.obj" "Source\DSP281x_InitPeripherals.obj" "Source\DSP281x_Mcbsp.obj" "Source\DSP281x_MemCopy.obj" "Source\DSP281x_PieCtrl.obj" "Source\DSP281x_PieVect.obj" "Source\DSP281x_Sci.obj" "Source\DSP281x_Spi.obj" "Source\DSP281x_SysCtrl.obj" "Source\DSP281x_XIntrupt.obj" "Source\DSP281x_Xintf.obj" "Source\DSP281x_usDelay.obj" "Source\Dec_Ini_Vars.obj" "Source\main.obj" 
-	-$(RM) "Source\DSP281x_Adc.d" "Source\DSP281x_CpuTimers.d" "Source\DSP281x_DefaultIsr.d" "Source\DSP281x_ECan.d" "Source\DSP281x_Ev.d" "Source\DSP281x_GlobalVariableDefs.d" "Source\DSP281x_Gpio.d" "Source\DSP281x_InitPeripherals.d" "Source\DSP281x_Mcbsp.d" "Source\DSP281x_MemCopy.d" "Source\DSP281x_PieCtrl.d" "Source\DSP281x_PieVect.d" "Source\DSP281x_Sci.d" "Source\DSP281x_Spi.d" "Source\DSP281x_SysCtrl.d" "Source\DSP281x_XIntrupt.d" "Source\DSP281x_Xintf.d" "Source\Dec_Ini_Vars.d" "Source\main.d" 
+	-$(RM) "Source\DAC.obj" "Source\DSP281x_Adc.obj" "Source\DSP281x_CodeStartBranch.obj" "Source\DSP281x_CpuTimers.obj" "Source\DSP281x_DBGIER.obj" "Source\DSP281x_DefaultIsr.obj" "Source\DSP281x_ECan.obj" "Source\DSP281x_Ev.obj" "Source\DSP281x_GlobalVariableDefs.obj" "Source\DSP281x_Gpio.obj" "Source\DSP281x_InitPeripherals.obj" "Source\DSP281x_Mcbsp.obj" "Source\DSP281x_MemCopy.obj" "Source\DSP281x_PieCtrl.obj" "Source\DSP281x_PieVect.obj" "Source\DSP281x_Sci.obj" "Source\DSP281x_Spi.obj" "Source\DSP281x_SysCtrl.obj" "Source\DSP281x_XIntrupt.obj" "Source\DSP281x_Xintf.obj" "Source\DSP281x_usDelay.obj" "Source\Dec_Ini_Vars.obj" "Source\main.obj" 
+	-$(RM) "Source\DAC.d" "Source\DSP281x_Adc.d" "Source\DSP281x_CpuTimers.d" "Source\DSP281x_DefaultIsr.d" "Source\DSP281x_ECan.d" "Source\DSP281x_Ev.d" "Source\DSP281x_GlobalVariableDefs.d" "Source\DSP281x_Gpio.d" "Source\DSP281x_InitPeripherals.d" "Source\DSP281x_Mcbsp.d" "Source\DSP281x_MemCopy.d" "Source\DSP281x_PieCtrl.d" "Source\DSP281x_PieVect.d" "Source\DSP281x_Sci.d" "Source\DSP281x_Spi.d" "Source\DSP281x_SysCtrl.d" "Source\DSP281x_XIntrupt.d" "Source\DSP281x_Xintf.d" "Source\Dec_Ini_Vars.d" "Source\main.d" 
 	-$(RM) "Source\DSP281x_CodeStartBranch.d" "Source\DSP281x_DBGIER.d" "Source\DSP281x_usDelay.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
