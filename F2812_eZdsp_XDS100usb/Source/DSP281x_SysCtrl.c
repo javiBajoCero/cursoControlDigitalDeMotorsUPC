@@ -203,7 +203,7 @@ void InitPeripheralClocks(void)
    SysCtrlRegs.PCLKCR.bit.SCIAENCLK=0;
    SysCtrlRegs.PCLKCR.bit.SCIBENCLK=0;
    SysCtrlRegs.PCLKCR.bit.MCBSPENCLK=0;
-   SysCtrlRegs.PCLKCR.bit.SPIENCLK=0;
+   SysCtrlRegs.PCLKCR.bit.SPIENCLK=1;
    SysCtrlRegs.PCLKCR.bit.ECANENCLK=0;
    SysCtrlRegs.PCLKCR.bit.ADCENCLK=0;
    EDIS;

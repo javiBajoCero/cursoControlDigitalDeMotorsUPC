@@ -73,7 +73,7 @@ void main(void)
     {
 
        //ejercicio1_ledblink();
-       //ejercicio2_cochefantastico();
+       ejercicio2_cochefantastico();
        //ejercicio3_contadorbinarioboton();
        //ejercicio4_secretpassword();
     }
