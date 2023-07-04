@@ -10,10 +10,8 @@ interrupt void interrupt_timer0(void){
         rampa = _IQ(0.0);
 
     sinus = _IQsinPU(rampa);
-    DAC_envia(&dacstruct);
 
-//    DAC_envia(&dacstruct);
-//    dacstruct.A.Data++;
+    DAC_envia(&dacstruct);
 
     PieCtrlRegs.PIEACK.all= PIEACK_GROUP1;
 }
