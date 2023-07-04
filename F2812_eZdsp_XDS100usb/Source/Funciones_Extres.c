@@ -214,12 +214,12 @@ void setupForDACexercice(void){
     DAC_inici();
 
     dacstruct.A.Data= (unsigned long *)&rampa;
-    dacstruct.A.Guany=256;
+    dacstruct.A.Guany=1<<8;
     dacstruct.A.Offset=0;
 
     dacstruct.B.Data= (unsigned long *)&sinus;
-    dacstruct.B.Guany=1;
-    dacstruct.B.Offset=0;
+    dacstruct.B.Guany=1<<7;
+    dacstruct.B.Offset=0.5;
 
 }
 
