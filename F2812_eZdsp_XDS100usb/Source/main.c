@@ -66,16 +66,15 @@ void main(void)
     //enableinterruptTIM0(2000000);//2 seconds =0,5Hz
     setupForDACexercice();
 
-
-
-
     for(;;)
     {
 
        //ejercicio1_ledblink();
-       ejercicio2_cochefantastico();
+//       ejercicio2_cochefantastico();
        //ejercicio3_contadorbinarioboton();
        //ejercicio4_secretpassword();
+
+
     }
 
 }

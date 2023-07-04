@@ -1,6 +1,11 @@
 
 // Definició d'estructures i variables globals
 extern long  dummy1;
+
+extern _iq rampa;
+extern _iq rampa_incr;
+extern _iq sinus;
+
 extern DAC_tipus dacstruct;
 
 

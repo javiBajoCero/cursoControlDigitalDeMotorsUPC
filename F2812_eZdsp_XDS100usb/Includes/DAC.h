@@ -32,7 +32,7 @@ typedef struct
 	DAC_Struct 	B;
 	DAC_Struct 	C;
 	DAC_Struct 	D;
-	int			nDAC;//POR SUPUESTO QUE NO ESTÄ COMENTADO NADA
+	int			nDAC;//es un contador extra;o interno, no es un enable., no tocar
 } DAC_tipus;
 
 typedef DAC_tipus *DAC_handle;

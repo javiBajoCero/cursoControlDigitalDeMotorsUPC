@@ -55,12 +55,6 @@ void InitGpio(void)
      GpioMuxRegs.GPFMUX.all=0x0000;
      GpioMuxRegs.GPFDIR.bit.GPIOF14=1;        // 1=output
      GpioDataRegs.GPFCLEAR.bit.GPIOF14=0x1;
-
-
-
-
-
-
      EDIS;
 
 }	

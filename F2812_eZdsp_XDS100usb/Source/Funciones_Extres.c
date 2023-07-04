@@ -212,10 +212,14 @@ void enableinterruptTIM0(float period){
 
 void setupForDACexercice(void){
     DAC_inici();
-    dacstruct.nDAC=0;
-    dacstruct.A.Guany=1.0;
-    dacstruct.A.Offset=0.0;
-    *dacstruct.A.Data=2.0;
+
+    dacstruct.A.Data= (unsigned long *)&rampa;
+    dacstruct.A.Guany=256;
+    dacstruct.A.Offset=0;
+
+    dacstruct.B.Data= (unsigned long *)&sinus;
+    dacstruct.B.Guany=1;
+    dacstruct.B.Offset=0;
 
 }
 
