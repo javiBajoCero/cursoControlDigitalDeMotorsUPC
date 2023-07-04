@@ -38,16 +38,21 @@ void InitEv(void)
     //compare action control register
      EvaRegs.ACTRA.bit.CMP1ACT = 0x002; // Pin Action on PWM1 active high
      EvaRegs.ACTRA.bit.CMP2ACT = 0x001; // Pin Action on PWM2 active low
-
+     EvaRegs.ACTRA.bit.CMP3ACT = 0x002; // Pin Action on PWM3 active high
+     EvaRegs.ACTRA.bit.CMP4ACT = 0x001; // Pin Action on PWM4 active low
     // Initialization of timers and compare points
     EvaRegs.T1PR                = pwmperiodinticks; //25Mhz/2500=10Khz
+    EvaRegs.T2PR                = pwmperiodinticks; //25Mhz/2500=10Khz
     EvaRegs.CMPR1               = pwmperiodinticks/2; //50%
+    EvaRegs.CMPR2               = pwmperiodinticks/2; //50%
 
     EvaRegs.EXTCONA.bit.INDCOE  = 1; // Independent Compare Output Enabled
 
     EvaRegs.COMCONA.bit.C1TRIPE         = 1; // Full Compare 1 Trip enabled
+    EvaRegs.COMCONA.bit.C2TRIPE         = 1; // Full Compare 1 Trip enabled
     EvaRegs.COMCONA.bit.FCMP1OE         = 1; // Full Compare 1 Output enabled
-    EvaRegs.COMCONA.bit.PDPINTASTATUS   = 0; // PDPint High
+    EvaRegs.COMCONA.bit.FCMP2OE         = 1; // Full Compare 1 Output enabled
+    EvaRegs.COMCONA.bit.PDPINTASTATUS   = 0; // PDPint High (DISABLES TO HIGH IMPEDANCE, HARDWARE GPIO FAULT ALARM)
     EvaRegs.COMCONA.bit.SVENABLE        = 0; // SVPWM disabled
     EvaRegs.COMCONA.bit.CLD             = 1; // Reload condition when T1CNT or T1PR = 0
     EvaRegs.COMCONA.bit.CENABLE         = 1; // Compare Enable
@@ -61,6 +66,16 @@ void InitEv(void)
     EvaRegs.T1CON.bit.TMODE     = 1; // Continuous up-down counting
     EvaRegs.T1CON.bit.FREE      = 1; // Free run mode
     EvaRegs.T1CON.bit.SOFT      = 0;
+
+    // Initialization of the Timer 2 control registers
+    EvaRegs.T2CON.bit.TECMPR    = 1; // Timer 2 Compare enabled
+    EvaRegs.T2CON.bit.TCLD10    = 1; // Compare to reload when counter equals zero or period register
+    EvaRegs.T2CON.bit.TCLKS10   = 0; // Timer 2 Clock source set to internal (HSPCLK)
+    EvaRegs.T2CON.bit.TENABLE   = 1; // Timer 2 enabled
+    EvaRegs.T2CON.bit.TPS       = 0; // preescaler to 2, 25Mhz
+    EvaRegs.T2CON.bit.TMODE     = 1; // Continuous up-down counting
+    EvaRegs.T2CON.bit.FREE      = 1; // Free run mode
+    EvaRegs.T2CON.bit.SOFT      = 0;
 
 }	
 	
