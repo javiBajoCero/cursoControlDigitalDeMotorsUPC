@@ -23,6 +23,9 @@ Source/Dec_Ini_Vars.obj: C:/ti/ccs1230/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LT
 Source/Dec_Ini_Vars.obj: C:/ti/ccs1230/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/linkage.h
 Source/Dec_Ini_Vars.obj: C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS100usb/Includes/DAC.h
 Source/Dec_Ini_Vars.obj: C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS100usb/Includes/CITCEA.h
+Source/Dec_Ini_Vars.obj: C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS100usb/Includes/DSP281x_Examples.h
+Source/Dec_Ini_Vars.obj: C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS100usb/Includes/DSP281x_SWPrioritizedIsrLevels.h
+Source/Dec_Ini_Vars.obj: C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS100usb/Includes/DSP281x_DefaultISR.h
 
 ../Source/Dec_Ini_Vars.c:
 
@@ -69,4 +72,10 @@ C:/ti/ccs1230/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/linkage.h:
 C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS100usb/Includes/DAC.h:
 
 C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS100usb/Includes/CITCEA.h:
+
+C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS100usb/Includes/DSP281x_Examples.h:
+
+C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS100usb/Includes/DSP281x_SWPrioritizedIsrLevels.h:
+
+C:/Users/citcea/Documents/GitHub/cursoControlDigitalDeMotorsUPC/F2812_eZdsp_XDS100usb/Includes/DSP281x_DefaultISR.h:
 

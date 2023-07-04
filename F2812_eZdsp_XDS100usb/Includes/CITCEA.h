@@ -55,3 +55,5 @@ void ejercicio4_secretpassword(void);
 interrupt void interrupt_timer0(void);
 void enableinterruptTIM0(float period);
 void setupForDACexercice(void);
+
+void setupForPWM(void);

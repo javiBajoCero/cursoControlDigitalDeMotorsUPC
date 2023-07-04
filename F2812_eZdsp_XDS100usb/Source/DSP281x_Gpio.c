@@ -25,8 +25,18 @@ void InitGpio(void)
 // Set GPIO A port pins,AL(Bits 7:0)(input)-AH(Bits 15:8) (output) 8bits
 // Input Qualifier =0, none
      EALLOW;
-     GpioMuxRegs.GPAMUX.all=0x0000;     
+     GpioMuxRegs.GPAMUX.all=0x0000;         //all pins as gpios
+     GpioMuxRegs.GPAMUX.bit.PWM1_GPIOA0=1;  // gpio A0 as PWM1
+     GpioMuxRegs.GPAMUX.bit.PWM2_GPIOA1=1;  // gpio A1 as PWM2
+     GpioMuxRegs.GPAMUX.bit.PWM3_GPIOA2=1;  // gpio A2 as PWM3
+     GpioMuxRegs.GPAMUX.bit.PWM4_GPIOA3=1;  // gpio A3 as PWM4
+
      GpioMuxRegs.GPADIR.all=0xFF00;    	// upper byte as output/low byte as input
+     GpioMuxRegs.GPADIR.bit.GPIOA0=1;   // gpio A0 as output
+     GpioMuxRegs.GPADIR.bit.GPIOA1=1;   // gpio A1 as output
+     GpioMuxRegs.GPADIR.bit.GPIOA2=1;   // gpio A2 as output
+     GpioMuxRegs.GPADIR.bit.GPIOA3=1;   // gpio A3 as output
+
      GpioMuxRegs.GPAQUAL.all=0x0000;	// Input qualifier disabled
 
 // Set GPIO B port pins, configured as EVB signals //TODO:EVB?

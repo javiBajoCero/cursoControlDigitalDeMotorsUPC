@@ -122,6 +122,7 @@ typedef long double         float64;
 
 #include "CITCEA.h"                         //para usar dummy1
 
+#include "DSP281x_Examples.h"//for DELAY_US
 
 #ifdef __cplusplus
 }

@@ -65,11 +65,12 @@ void main(void)
 // Step 6. IDLE loop. Just sit and loop forever (optional):
     //enableinterruptTIM0(2000000);//2 seconds =0,5Hz
     setupForDACexercice();
+    setupForPWM();
 
     for(;;)
     {
        //ejercicio1_ledblink();
-       //ejercicio2_cochefantastico();
+       ejercicio2_cochefantastico();
        //ejercicio3_contadorbinarioboton();
        //ejercicio4_secretpassword();
     }

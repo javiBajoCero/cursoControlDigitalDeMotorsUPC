@@ -3,11 +3,7 @@
 int16 secretpassword=0;
 
 void delay(int32 times){
-    int32 i,j;
-    for ( i = 0;  i < 0xFFFF; ++ i) {
-        for ( j = 0;  j < times; ++ j) {
-        };
-    };
+    DELAY_US(times*1000);
 }
 
 //apaga todos los LEDS
@@ -143,13 +139,13 @@ void ejercicio2_cochefantastico(void){
         for (i = 0; i < 3; ++i) {
             allGPIOSloff();
             turnSingleLEDon(i);
-            delay(0xF);
+            delay(150);
         }
 
         for (i = 3; i > 0; --i) {
             allGPIOSloff();
             turnSingleLEDon(i);
-            delay(0xF);
+            delay(150);
         }
 
     }
@@ -210,17 +206,23 @@ void enableinterruptTIM0(float period){
 }
 
 
+//initialices the SPI-DAC and the pointers from the DAC data structs to our ramp and sine variables.
 void setupForDACexercice(void){
     DAC_inici();
 
     dacstruct.A.Data= (unsigned long *)&rampa;
-    dacstruct.A.Guany=1<<8;
+    dacstruct.A.Guany=1<<8;//por algun motivo que no entendí bien, al usar _iq19 con este dac se descartan los 8 primeros bits.
     dacstruct.A.Offset=0;
 
     dacstruct.B.Data= (unsigned long *)&sinus;
-    dacstruct.B.Guany=1<<7;
-    dacstruct.B.Offset=0.5;
+    dacstruct.B.Guany=1<<7;//quito un bit (1>>) ganancia *0.5
+    dacstruct.B.Offset=0.5;//sinus tiene valores entre (-1 y 1)/2 = (-0.5 y 0.5), el DAC no representa valores negativos;
 
+}
+
+//Generating 4 PWM signals at 10Khz following https://youtu.be/78cyedzNock?t=184
+void setupForPWM(void){
+    InitEv();//initialises the event manager 1
 }
 
 
