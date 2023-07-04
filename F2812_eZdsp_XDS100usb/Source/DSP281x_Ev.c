@@ -28,11 +28,12 @@ void InitEv(void)
      SysCtrlRegs.PCLKCR.bit.EVAENCLK=1;//1 enable - 0 disable
      EDIS;
 
-     // Initialization of the dead band timer control register //TODO el deadtime marca 1,5us siempre , no cambia con DBT, el DBT no funciona??
+     // Initialization of the dead band timer control register
      EvaRegs.DBTCONA.bit.EDBT1 = 1; // Enable dead band timer 1
-     EvaRegs.DBTCONA.bit.DBT   = 50; // Set the DB Timer period to 50
-     EvaRegs.DBTCONA.bit.DBTPS = 0; // Set the dead band prescaler to 1
-     //deadtime to 1*50*0,04us=2us
+     EvaRegs.DBTCONA.bit.EDBT2 = 1; // Enable dead band timer 1
+     EvaRegs.DBTCONA.bit.DBT   = 13; // Set the DB Timer period to 13 //LIMITADO A 4 BITS MAX=15
+     EvaRegs.DBTCONA.bit.DBTPS = 2; // Set the dead band prescaler to 4
+     //deadtime to 4*13*0,04us=2.08us
 
     //compare action control register
      EvaRegs.ACTRA.bit.CMP1ACT = 0x002; // Pin Action on PWM1 active high
