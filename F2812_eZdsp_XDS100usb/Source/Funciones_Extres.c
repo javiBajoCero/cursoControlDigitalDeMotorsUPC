@@ -225,15 +225,21 @@ void setupForPWM(void){
     InitEv();//initialises the event manager 1
 }
 
-//
+//translates _iq19 to uint16 PWM register values.
 //throttle could be 0.0 which would be motor stopped, 1.0 would be motor full throttle foward, -1.0 full throttle backwards
 void runmotorpwm_PUiq19(_iq19 throttle){
-    _iq19   throttleaux=(throttle+ _IQ19(1.0));
+
+    if(throttle>_IQ19(1.0)){//takes care of out of bounds throttle
+        throttle=_IQ19(1.0);
+    }else if(throttle<_IQ19(-1.0)){
+        throttle=_IQ19(-1.0);
+    }
+
+    _iq19   throttleaux=(throttle+ _IQ19(1.0));//remove offset
             throttleaux/=2;
 
-    Uint16 realthrottle=(Uint32)((throttleaux)//remove offset
-            *pwmperiodinticks)//scale to fit the PWM register span
-            >>19;//bit shift to remove iq decimal
+    Uint16 realthrottle=(Uint32)((throttleaux)*pwmperiodinticks)    //scale to fit the PWM register span
+                                                            >>19;   //bit shift to remove iq decimal
 
     if(realthrottle>(pwmperiodinticks)){//takes care of overshoots
         realthrottle=pwmperiodinticks;
@@ -243,6 +249,18 @@ void runmotorpwm_PUiq19(_iq19 throttle){
     EvaRegs.CMPR2=realthrottle;
 
 }
+
+//takes ONOFF and enables/disables the PWM outputs, disabling by opening all mosfets
+void enabledisable_PWMs(Uint32 ONOFF){
+    if(ONOFF){//enable
+        EvaRegs.COMCONA.bit.FCMP1OE         = 1; // Full Compare 1 Output enabled
+        EvaRegs.COMCONA.bit.FCMP2OE         = 1; // Full Compare 1 Output enabled
+    }else{//disable
+        EvaRegs.COMCONA.bit.FCMP1OE         = 0; // Full Compare 1 Output disabled
+        EvaRegs.COMCONA.bit.FCMP2OE         = 0; // Full Compare 1 Output disabled
+    }
+}
+
 
 
 
