@@ -2,7 +2,7 @@
 <link_info>
    <banner>TMS320C2000 Linker PC v22.6.0.LTS</banner>
    <copyright>Copyright (c) 1996-2018 Texas Instruments Incorporated</copyright>
-   <link_time>0x64a5597e</link_time>
+   <link_time>0x64a55a2e</link_time>
    <link_errors>0x0</link_errors>
    <output_file>F2812_eZdsp_XDS100usb.out</output_file>
    <entry_point>
