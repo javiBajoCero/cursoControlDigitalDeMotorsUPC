@@ -17,6 +17,8 @@
 
 // Prototype statements for functions found within this file.
 
+_iq19 th= _IQ19(0.5);
+
 void main(void)
 {
 
@@ -70,9 +72,10 @@ void main(void)
     for(;;)
     {
        //ejercicio1_ledblink();
-       ejercicio2_cochefantastico();
+       //ejercicio2_cochefantastico();
        //ejercicio3_contadorbinarioboton();
        //ejercicio4_secretpassword();
+        runmotorpwm_PUiq19(th);
     }
 
 }

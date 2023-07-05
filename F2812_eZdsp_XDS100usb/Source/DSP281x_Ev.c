@@ -14,7 +14,7 @@
 #include "DSP281x_Device.h"     // DSP281x Headerfile Include File
 #include "DSP281x_Examples.h"   // DSP281x Examples Include File
 
-#define pwmperiodinticks (Uint16)2500/2 //como es nidireccional count up down es /2
+
 //---------------------------------------------------------------------------
 // InitEv: 
 //---------------------------------------------------------------------------
@@ -38,8 +38,8 @@ void InitEv(void)
     //compare action control register
      EvaRegs.ACTRA.bit.CMP1ACT = 0x002; // Pin Action on PWM1 active high
      EvaRegs.ACTRA.bit.CMP2ACT = 0x001; // Pin Action on PWM2 active low
-     EvaRegs.ACTRA.bit.CMP3ACT = 0x002; // Pin Action on PWM3 active high
-     EvaRegs.ACTRA.bit.CMP4ACT = 0x001; // Pin Action on PWM4 active low
+     EvaRegs.ACTRA.bit.CMP3ACT = 0x001; // Pin Action on PWM3 active high
+     EvaRegs.ACTRA.bit.CMP4ACT = 0x002; // Pin Action on PWM4 active low
     // Initialization of timers and compare points
     EvaRegs.T1PR                = pwmperiodinticks; //25Mhz/2500=10Khz
     EvaRegs.T2PR                = pwmperiodinticks; //25Mhz/2500=10Khz

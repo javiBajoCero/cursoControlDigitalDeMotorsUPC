@@ -38,6 +38,8 @@ extern DAC_tipus dacstruct;
 #define TOGGLE_LED7         (GpioDataRegs.GPBTOGGLE.bit.GPIOB2=0x01)
 #define TOGGLE_LED8         (GpioDataRegs.GPBTOGGLE.bit.GPIOB3=0x01)
 
+//ticks for the PWM register
+#define pwmperiodinticks (Uint16)2500/2 //como es nidireccional count up down es /2
 
 void delay(int32 times);
 void allGPIOSloff(void);
@@ -57,3 +59,6 @@ void enableinterruptTIM0(float period);
 void setupForDACexercice(void);
 
 void setupForPWM(void);
+void runmotorpwm_PU(_iq run);
+void runmotorpwm_rawuint16(Uint16 run);
+void runmotorpwm_PUiq19(_iq19 run);
