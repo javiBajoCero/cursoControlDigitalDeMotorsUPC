@@ -251,14 +251,12 @@ void runmotorpwm_PUiq19(_iq19 throttle){
 }
 
 //takes ONOFF and enables/disables the PWM outputs, disabling by opening all high mosfets (logic low), and enabling low mosfets (logic high), shorting Motor coils to ground.
-void enabledisable_PWMs(Uint32 ONOFF){
-    if(ONOFF){//enable
-        EvaRegs.COMCONA.bit.FCMP1OE         = 1; // Full Compare 1 Output enabled
-        EvaRegs.COMCONA.bit.FCMP2OE         = 1; // Full Compare 1 Output enabled
-    }else{//disable
-        EvaRegs.COMCONA.bit.FCMP1OE         = 0; // Full Compare 1 Output disabled
-        EvaRegs.COMCONA.bit.FCMP2OE         = 0; // Full Compare 1 Output disabled
+void enabledisable_PWMs(Uint16 ONOFF){
+    if(ONOFF==0 || ONOFF==1){//anything else other than 1 or 0 getts ignored
+        EvaRegs.COMCONA.bit.FCMP1OE         = ONOFF; // Full Compare 1 (1=enabled, 0 disabled)
+        EvaRegs.COMCONA.bit.FCMP2OE         = ONOFF; // Full Compare 2 (1=enabled, 0 disabled)
     }
+
 }
 
 

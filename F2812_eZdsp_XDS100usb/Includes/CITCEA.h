@@ -62,4 +62,4 @@ void setupForPWM(void);
 void runmotorpwm_PU(_iq run);
 void runmotorpwm_rawuint16(Uint16 run);
 void runmotorpwm_PUiq19(_iq19 run);
-void enabledisable_PWMs(Uint32 ONOFF);
+void enabledisable_PWMs(Uint16 ONOFF);

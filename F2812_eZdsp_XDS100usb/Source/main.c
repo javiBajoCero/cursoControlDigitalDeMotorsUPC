@@ -17,8 +17,8 @@
 
 // Prototype statements for functions found within this file.
 
-_iq19 alpha= _IQ19(0.0);// de +1.0 a -1.0, 0.0 significa motor parado
-Uint32 ONOFF=1;         //1=PWM ON, 0= PWM off
+_iq19 alpha= _IQ19(0.0);// de +1.0 (full foward) a -1.0(full backwars), 0.0 (stop)
+Uint16 ONOFF=1;         //1=PWM ON, 0= PWM off
 
 void main(void)
 {
