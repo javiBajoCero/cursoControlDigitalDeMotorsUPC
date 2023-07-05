@@ -18,7 +18,7 @@
 // Prototype statements for functions found within this file.
 
 _iq19 alpha= _IQ19(0.0);// de +1.0 (full foward) a -1.0(full backwars), 0.0 (stop)
-Uint16 ONOFF=1;         //1=PWM ON, 0= PWM off
+ON_OFF_enum ONOFF=ON;         //1=PWM ON, 0= PWM off
 
 void main(void)
 {

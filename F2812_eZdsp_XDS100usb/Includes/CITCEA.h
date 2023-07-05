@@ -62,4 +62,9 @@ void setupForPWM(void);
 void runmotorpwm_PU(_iq run);
 void runmotorpwm_rawuint16(Uint16 run);
 void runmotorpwm_PUiq19(_iq19 run);
-void enabledisable_PWMs(Uint16 ONOFF);
+
+typedef enum{
+    OFF =(Uint16)0,
+    ON  =(Uint16)1
+}ON_OFF_enum;
+void enabledisable_PWMs(ON_OFF_enum ONOFF);
