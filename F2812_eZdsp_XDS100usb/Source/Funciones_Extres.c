@@ -228,8 +228,11 @@ void setupForPWM(void){
 //
 //throttle could be 0.0 which would be motor stopped, 1.0 would be motor full throttle foward, -1.0 full throttle backwards
 void runmotorpwm_PUiq19(_iq19 throttle){
-    Uint16 realthrottle=(Uint32)((throttle + _IQ19(1.0))//remove offset
-            *pwmperiodinticks*0.5)//scale to fit the PWM register span
+    _iq19   throttleaux=(throttle+ _IQ19(1.0));
+            throttleaux/=2;
+
+    Uint16 realthrottle=(Uint32)((throttleaux)//remove offset
+            *pwmperiodinticks)//scale to fit the PWM register span
             >>19;//bit shift to remove iq decimal
 
     if(realthrottle>(pwmperiodinticks)){//takes care of overshoots

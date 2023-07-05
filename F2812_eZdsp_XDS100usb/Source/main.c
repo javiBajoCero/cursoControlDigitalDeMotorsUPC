@@ -17,7 +17,7 @@
 
 // Prototype statements for functions found within this file.
 
-_iq19 th= _IQ19(0.5);
+_iq19 th= _IQ19(0.0);
 
 void main(void)
 {
