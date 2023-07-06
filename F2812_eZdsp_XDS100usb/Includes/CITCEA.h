@@ -68,3 +68,7 @@ typedef enum{
     ON  =(Uint16)1
 }ON_OFF_enum;
 void enabledisable_PWMs(ON_OFF_enum ONOFF);
+
+extern Uint32 ticksper5ms;
+extern _iq19 revolutionper5ms;
+extern _iq19 motor_rpm;

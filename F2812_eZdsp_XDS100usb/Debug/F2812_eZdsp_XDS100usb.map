@@ -1,10 +1,10 @@
 ******************************************************************************
              TMS320C2000 Linker PC v22.6.0                     
 ******************************************************************************
->> Linked Wed Jul  5 16:48:52 2023
+>> Linked Thu Jul  6 12:32:39 2023
 
 OUTPUT FILE NAME:   <F2812_eZdsp_XDS100usb.out>
-ENTRY POINT SYMBOL: "_c_int00"  address: 003f8761
+ENTRY POINT SYMBOL: "_c_int00"  address: 003f87d0
 
 
 MEMORY CONFIGURATION
@@ -12,10 +12,10 @@ MEMORY CONFIGURATION
          name            origin    length      used     unused   attr    fill
 ----------------------  --------  ---------  --------  --------  ----  --------
 PAGE 0:
-  RAMM0                 00000000   00000400  0000005b  000003a5  RWIX
+  RAMM0                 00000000   00000400  0000006a  00000396  RWIX
   BEGIN                 003f8000   00000002  00000002  00000000  RWIX
-  RAMH0                 003f8002   00001ffe  000009f8  00001606  RWIX
-  IQTABLES              003ff000   00000b50  00000b50  00000000  RWIX
+  RAMH0                 003f8002   00001ffe  000009e9  00001615  RWIX
+  IQTABLES              003ff000   00000b50  00000000  00000b50  RWIX
   RESET                 003fffc0   00000002  00000000  00000002  RWIX
 
 PAGE 1:
@@ -45,7 +45,7 @@ PAGE 1:
   EVB                   00007500   00000040  00000032  0000000e  RWIX
   SCIB                  00007750   00000010  00000010  00000000  RWIX
   MCBSPA                00007800   00000040  00000025  0000001b  RWIX
-  RAML0L1               00008000   00002000  0000015a  00001ea6  RWIX
+  RAML0L1               00008000   00002000  00000160  00001ea0  RWIX
   CSM_PWL               003f7ff8   00000008  00000008  00000000  RWIX
 
 
@@ -54,61 +54,54 @@ SECTION ALLOCATION MAP
  output                                  attributes/
 section   page    origin      length       input sections
 --------  ----  ----------  ----------   ----------------
-.cinit     0    00000000    0000005b     
-                  00000000    00000030     Dec_Ini_Vars.obj (.cinit)
-                  00000030    0000000e     rts2800_ml.lib : exit.c.obj (.cinit)
-                  0000003e    00000009     main.obj (.cinit)
-                  00000047    00000008     Funciones_Extres.obj (.cinit)
-                  0000004f    00000005     rts2800_ml.lib : _lock.c.obj (.cinit:__lock)
-                  00000054    00000005                    : _lock.c.obj (.cinit:__unlock)
-                  00000059    00000002     --HOLE-- [fill = 0]
-
-.text      0    003f8002    000009cb     
-                  003f8002    000001fa     Funciones_Extres.obj (.text)
-                  003f81fc    0000014f     DSP281x_DefaultIsr.obj (.text:retain)
-                  003f834b    000000b4     DAC.obj (.text)
-                  003f83ff    0000009c     rts2800_ml.lib : fd_add28.asm.obj (.text)
-                  003f849b    0000008b                    : fd_div28.asm.obj (.text)
-                  003f8526    00000086     DSP281x_SysCtrl.obj (.text)
-                  003f85ac    00000083     rts2800_ml.lib : fd_mpy28.asm.obj (.text)
-                  003f862f    0000006e     DSP281x_Ev.obj (.text)
-                  003f869d    0000006a     DSP281x_CpuTimers.obj (.text)
-                  003f8707    0000005a     rts2800_ml.lib : fs_mpy28.asm.obj (.text)
-                  003f8761    00000054                    : boot28.asm.obj (.text)
-                  003f87b5    00000048     DSP281x_Gpio.obj (.text)
-                  003f87fd    00000033     Interrupt_Timer0.obj (.text:retain)
-                  003f8830    00000029     rts2800_ml.lib : exit.c.obj (.text)
-                  003f8859    00000029                    : fs_tol28.asm.obj (.text)
-                  003f8882    00000028     DSP281x_PieCtrl.obj (.text)
-                  003f88aa    00000024     main.obj (.text)
-                  003f88ce    00000024     rts2800_ml.lib : cpy_tbl.c.obj (.text)
-                  003f88f2    00000020     DSP281x_PieVect.obj (.text)
-                  003f8912    0000001d     rts2800_ml.lib : memcpy.c.obj (.text)
-                  003f892f    0000001c                    : l_tofd28.asm.obj (.text)
-                  003f894b    0000001b                    : fd_toul28.asm.obj (.text)
-                  003f8966    0000001a                    : l_tofs28.asm.obj (.text)
-                  003f8980    00000017                    : fs_cmp28.asm.obj (.text)
-                  003f8997    00000011                    : args_main.c.obj (.text)
-                  003f89a8    0000000e                    : fd_sub28.asm.obj (.text)
-                  003f89b6    00000009                    : _lock.c.obj (.text)
-                  003f89bf    00000008     DSP281x_CodeStartBranch.obj (.text)
-                  003f89c7    00000003     DSP281x_DBGIER.obj (.text)
-                  003f89ca    00000002     rts2800_ml.lib : pre_init.c.obj (.text)
-                  003f89cc    00000001                    : startup.c.obj (.text)
-
-IQmath     0    003f89cd    00000029     
-                  003f89cd    00000029     IQmath.lib : IQ24sinPU.obj (IQmath)
-
-IQmathTables 
-*          0    003ff000    00000b50     NOLOAD SECTION
-                  003ff000    00000b50     IQmath.lib : IQmathTables.obj (IQmathTables)
+.cinit     0    00000000    0000006a     
+                  00000000    0000003f     Dec_Ini_Vars.obj (.cinit)
+                  0000003f    0000000e     rts2800_ml.lib : exit.c.obj (.cinit)
+                  0000004d    00000009     main.obj (.cinit)
+                  00000056    00000008     Funciones_Extres.obj (.cinit)
+                  0000005e    00000005     rts2800_ml.lib : _lock.c.obj (.cinit:__lock)
+                  00000063    00000005                    : _lock.c.obj (.cinit:__unlock)
+                  00000068    00000002     --HOLE-- [fill = 0]
 
 codestart 
 *          0    003f8000    00000002     
                   003f8000    00000002     DSP281x_CodeStartBranch.obj (codestart)
 
-ramfuncs   0    003f89f6    00000004     
-                  003f89f6    00000004     DSP281x_usDelay.obj (ramfuncs)
+.text      0    003f8002    000009e5     
+                  003f8002    000001fa     Funciones_Extres.obj (.text)
+                  003f81fc    0000014f     DSP281x_DefaultIsr.obj (.text:retain)
+                  003f834b    000000b4     DAC.obj (.text)
+                  003f83ff    0000009c     rts2800_ml.lib : fd_add28.asm.obj (.text)
+                  003f849b    0000008b                    : fd_div28.asm.obj (.text)
+                  003f8526    00000089     DSP281x_Ev.obj (.text)
+                  003f85af    00000086     DSP281x_SysCtrl.obj (.text)
+                  003f8635    00000083     rts2800_ml.lib : fd_mpy28.asm.obj (.text)
+                  003f86b8    0000006a     DSP281x_CpuTimers.obj (.text)
+                  003f8722    0000005a     rts2800_ml.lib : fs_mpy28.asm.obj (.text)
+                  003f877c    00000054     DSP281x_Gpio.obj (.text)
+                  003f87d0    00000054     rts2800_ml.lib : boot28.asm.obj (.text)
+                  003f8824    0000002b     Interrupt_Timer0.obj (.text:retain)
+                  003f884f    00000029     rts2800_ml.lib : exit.c.obj (.text)
+                  003f8878    00000029                    : fs_tol28.asm.obj (.text)
+                  003f88a1    00000028     DSP281x_PieCtrl.obj (.text)
+                  003f88c9    00000024     rts2800_ml.lib : cpy_tbl.c.obj (.text)
+                  003f88ed    00000020     DSP281x_PieVect.obj (.text)
+                  003f890d    0000001f     main.obj (.text)
+                  003f892c    0000001d     rts2800_ml.lib : memcpy.c.obj (.text)
+                  003f8949    0000001c                    : l_tofd28.asm.obj (.text)
+                  003f8965    0000001b                    : fd_toul28.asm.obj (.text)
+                  003f8980    0000001a                    : l_tofs28.asm.obj (.text)
+                  003f899a    00000017                    : fs_cmp28.asm.obj (.text)
+                  003f89b1    00000011                    : args_main.c.obj (.text)
+                  003f89c2    0000000e                    : fd_sub28.asm.obj (.text)
+                  003f89d0    00000009                    : _lock.c.obj (.text)
+                  003f89d9    00000008     DSP281x_CodeStartBranch.obj (.text)
+                  003f89e1    00000003     DSP281x_DBGIER.obj (.text)
+                  003f89e4    00000002     rts2800_ml.lib : pre_init.c.obj (.text)
+                  003f89e6    00000001                    : startup.c.obj (.text)
+
+ramfuncs   0    003f89e7    00000004     
+                  003f89e7    00000004     DSP281x_usDelay.obj (ramfuncs)
 
 .pinit     0    003f8002    00000000     UNINITIALIZED
 
@@ -150,26 +143,18 @@ PieCtrlRegsFile
 *          1    00000ce0    0000001a     UNINITIALIZED
                   00000ce0    0000001a     DSP281x_GlobalVariableDefs.obj (PieCtrlRegsFile)
 
-ECanaMOTSRegsFile 
-*          1    00006080    00000040     UNINITIALIZED
-                  00006080    00000040     DSP281x_GlobalVariableDefs.obj (ECanaMOTSRegsFile)
-
-ECanaMOTORegsFile 
-*          1    000060c0    00000040     UNINITIALIZED
-                  000060c0    00000040     DSP281x_GlobalVariableDefs.obj (ECanaMOTORegsFile)
-
 .econst    1    00008000    00000110     
                   00008000    00000100     DSP281x_PieVect.obj (.econst:_PieVectTableInit)
                   00008100    00000010     Funciones_Extres.obj (.econst)
 
-.ebss      1    00008110    0000004a     UNINITIALIZED
-                  00008110    00000022     Dec_Ini_Vars.obj (.ebss)
-                  00008132    00000006     rts2800_ml.lib : exit.c.obj (.ebss)
-                  00008138    00000004     main.obj (.ebss)
-                  0000813c    00000002     Funciones_Extres.obj (.ebss)
-                  0000813e    00000002     rts2800_ml.lib : _lock.c.obj (.ebss:__lock)
+.ebss      1    00008110    00000050     UNINITIALIZED
+                  00008110    00000028     Dec_Ini_Vars.obj (.ebss)
+                  00008138    00000006     rts2800_ml.lib : exit.c.obj (.ebss)
+                  0000813e    00000002     Funciones_Extres.obj (.ebss)
                   00008140    00000018     DSP281x_CpuTimers.obj (.ebss)
-                  00008158    00000002     rts2800_ml.lib : _lock.c.obj (.ebss:__unlock)
+                  00008158    00000004     main.obj (.ebss)
+                  0000815c    00000002     rts2800_ml.lib : _lock.c.obj (.ebss:__lock)
+                  0000815e    00000002                    : _lock.c.obj (.ebss:__unlock)
 
 PieVectTableFile 
 *          1    00000d00    00000100     UNINITIALIZED
@@ -182,6 +167,14 @@ ECanaRegsFile
 ECanaLAMRegsFile 
 *          1    00006040    00000040     UNINITIALIZED
                   00006040    00000040     DSP281x_GlobalVariableDefs.obj (ECanaLAMRegsFile)
+
+ECanaMOTSRegsFile 
+*          1    00006080    00000040     UNINITIALIZED
+                  00006080    00000040     DSP281x_GlobalVariableDefs.obj (ECanaMOTSRegsFile)
+
+ECanaMOTORegsFile 
+*          1    000060c0    00000040     UNINITIALIZED
+                  000060c0    00000040     DSP281x_GlobalVariableDefs.obj (ECanaMOTORegsFile)
 
 ECanaMboxesFile 
 *          1    00006100    00000100     UNINITIALIZED
@@ -245,25 +238,19 @@ MODULE SUMMARY
        DSP281x_DefaultIsr.obj           335    0                  0                 
        DSP281x_PieVect.obj              32     256                0                 
        DAC.obj                          180    0                  0                 
+       DSP281x_Ev.obj                   137    0                  0                 
        DSP281x_SysCtrl.obj              134    0                  0                 
        DSP281x_CpuTimers.obj            106    0                  24                
-       DSP281x_Ev.obj                   110    0                  0                 
-       Dec_Ini_Vars.obj                 0      48                 34                
-       DSP281x_Gpio.obj                 72     0                  0                 
-       Interrupt_Timer0.obj             51     0                  0                 
-       main.obj                         36     9                  4                 
+       Dec_Ini_Vars.obj                 0      63                 40                
+       DSP281x_Gpio.obj                 84     0                  0                 
+       main.obj                         31     9                  4                 
+       Interrupt_Timer0.obj             43     0                  0                 
        DSP281x_PieCtrl.obj              40     0                  0                 
        DSP281x_CodeStartBranch.obj      10     0                  0                 
        DSP281x_usDelay.obj              4      0                  0                 
        DSP281x_DBGIER.obj               3      0                  0                 
     +--+--------------------------------+------+------------------+--------------------+
-       Total:                           1619   337                1465              
-                                                                                    
-    ../Libraries/IQmath.lib
-       IQmathTables.obj                 0      2896               0                 
-       IQ24sinPU.obj                    0      41                 0                 
-    +--+--------------------------------+------+------------------+--------------------+
-       Total:                           0      2937               0                 
+       Total:                           1645   352                1471              
                                                                                     
     C:\ti\ccs1230\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\rts2800_ml.lib
        fd_add28.asm.obj                 156    0                  0                 
@@ -289,7 +276,7 @@ MODULE SUMMARY
                                                                                     
        Stack:                           0      0                  1024              
     +--+--------------------------------+------+------------------+--------------------+
-       Grand Total:                     2513   3298               2499              
+       Grand Total:                     2539   376                2505              
 
 
 GLOBAL DATA SYMBOLS: SORTED BY DATA PAGE
@@ -349,86 +336,25 @@ address     data page           name
 00008112     204 (00008100)     _rampa
 00008114     204 (00008100)     _rampa_incr
 00008116     204 (00008100)     _sinus
-00008118     204 (00008100)     _dacstruct
-00008132     204 (00008100)     ___TI_enable_exit_profile_output
-00008134     204 (00008100)     ___TI_cleanup_ptr
-00008136     204 (00008100)     ___TI_dtors_ptr
-00008138     204 (00008100)     _ONOFF
-0000813a     204 (00008100)     _alpha
-0000813c     204 (00008100)     _secretpassword
-0000813d     204 (00008100)     _buttoncounter
-0000813e     204 (00008100)     __lock
+00008118     204 (00008100)     _ticksper5ms
+0000811a     204 (00008100)     _revolutionper5ms
+0000811c     204 (00008100)     _motor_rpm
+0000811e     204 (00008100)     _dacstruct
+00008138     204 (00008100)     ___TI_enable_exit_profile_output
+0000813a     204 (00008100)     ___TI_cleanup_ptr
+0000813c     204 (00008100)     ___TI_dtors_ptr
+0000813e     204 (00008100)     _secretpassword
+0000813f     204 (00008100)     _buttoncounter
 
 00008140     205 (00008140)     _CpuTimer0
 00008148     205 (00008140)     _CpuTimer1
 00008150     205 (00008140)     _CpuTimer2
-00008158     205 (00008140)     __unlock
+00008158     205 (00008140)     _ONOFF
+0000815a     205 (00008140)     _alpha
+0000815c     205 (00008140)     __lock
+0000815e     205 (00008140)     __unlock
 
 003f7ff8    fdff (003f7fc0)     _CsmPwl
-
-003f89cd    fe27 (003f89c0)     __IQ24sinPU
-
-003ff000    ffc0 (003ff000)     _IQsinTable
-
-003ff100    ffc4 (003ff100)     _IQcosTable
-
-003ff400    ffd0 (003ff400)     _IQsinTableEnd
-
-003ff502    ffd4 (003ff500)     _IQcosTableEnd
-003ff502    ffd4 (003ff500)     _IQdivRoundSatTable
-003ff510    ffd4 (003ff500)     _IQdivTable
-
-003ff712    ffdc (003ff700)     _IQdivTableEnd
-003ff712    ffdc (003ff700)     _IQisqrtRoundSatTable
-003ff712    ffdc (003ff700)     _IQsqrtRoundSatTable
-003ff722    ffdc (003ff700)     _IQisqrtTable
-003ff722    ffdc (003ff700)     _IQsqrtTable
-
-003ff824    ffe0 (003ff800)     _IQatan2HalfPITable
-003ff824    ffe0 (003ff800)     _IQisqrtTableEnd
-003ff824    ffe0 (003ff800)     _IQsqrtTableEnd
-
-003ff862    ffe1 (003ff840)     _IQatan2Table
-
-003ff9e8    ffe7 (003ff9c0)     _IQ30mpyRndSatTable
-003ff9e8    ffe7 (003ff9c0)     _IQatan2TableEnd
-003ff9e8    ffe7 (003ff9c0)     _IQmpyRndSatTable
-003ff9f4    ffe7 (003ff9c0)     _IQ29mpyRndSatTable
-
-003ffa00    ffe8 (003ffa00)     _IQ28mpyRndSatTable
-003ffa0c    ffe8 (003ffa00)     _IQ27mpyRndSatTable
-003ffa18    ffe8 (003ffa00)     _IQ26mpyRndSatTable
-003ffa24    ffe8 (003ffa00)     _IQ25mpyRndSatTable
-003ffa30    ffe8 (003ffa00)     _IQ24mpyRndSatTable
-003ffa3c    ffe8 (003ffa00)     _IQ23mpyRndSatTable
-
-003ffa48    ffe9 (003ffa40)     _IQ22mpyRndSatTable
-003ffa54    ffe9 (003ffa40)     _IQ21mpyRndSatTable
-003ffa60    ffe9 (003ffa40)     _IQ20mpyRndSatTable
-003ffa6c    ffe9 (003ffa40)     _IQ19mpyRndSatTable
-003ffa78    ffe9 (003ffa40)     _IQ18mpyRndSatTable
-
-003ffa84    ffea (003ffa80)     _IQ17mpyRndSatTable
-003ffa90    ffea (003ffa80)     _IQ16mpyRndSatTable
-003ffa9c    ffea (003ffa80)     _IQ15mpyRndSatTable
-003ffaa8    ffea (003ffa80)     _IQ14mpyRndSatTable
-003ffab4    ffea (003ffa80)     _IQ13mpyRndSatTable
-
-003ffac0    ffeb (003ffac0)     _IQ12mpyRndSatTable
-003ffacc    ffeb (003ffac0)     _IQ11mpyRndSatTable
-003ffad8    ffeb (003ffac0)     _IQ10mpyRndSatTable
-003ffae4    ffeb (003ffac0)     _IQ9mpyRndSatTable
-003ffaf0    ffeb (003ffac0)     _IQ8mpyRndSatTable
-003ffafc    ffeb (003ffac0)     _IQ7mpyRndSatTable
-
-003ffb08    ffec (003ffb00)     _IQ6mpyRndSatTable
-003ffb14    ffec (003ffb00)     _IQ5mpyRndSatTable
-003ffb20    ffec (003ffb00)     _IQ4mpyRndSatTable
-003ffb2c    ffec (003ffb00)     _IQ3mpyRndSatTable
-003ffb38    ffec (003ffb00)     _IQ2mpyRndSatTable
-
-003ffb44    ffed (003ffb40)     _IQ1mpyRndSatTable
-003ffb50    ffed (003ffb40)     _IQmpyRndSatTableEnd
 
 
 GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
@@ -436,17 +362,17 @@ GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name
 page  address   name                                 
 ----  -------   ----                                 
 0     003f8002  .text                                
-0     003f8830  C$$EXIT                              
+0     003f884f  C$$EXIT                              
 0     003f83ff  FD$$ADD                              
 0     003f849b  FD$$DIV                              
-0     003f85ac  FD$$MPY                              
-0     003f89a8  FD$$SUB                              
-0     003f894b  FD$$TOUL                             
-0     003f8980  FS$$CMP                              
-0     003f8707  FS$$MPY                              
-0     003f8859  FS$$TOL                              
-0     003f892f  L$$TOFD                              
-0     003f8966  L$$TOFS                              
+0     003f8635  FD$$MPY                              
+0     003f89c2  FD$$SUB                              
+0     003f8965  FD$$TOUL                             
+0     003f899a  FS$$CMP                              
+0     003f8722  FS$$MPY                              
+0     003f8878  FS$$TOL                              
+0     003f8949  L$$TOFD                              
+0     003f8980  L$$TOFS                              
 0     003f826f  _ADCINT_ISR                          
 1     00007100  _AdcRegs                             
 0     003f82b5  _CAPINT1_ISR                         
@@ -461,7 +387,7 @@ page  address   name
 0     003f82c4  _CMP4INT_ISR                         
 0     003f82c9  _CMP5INT_ISR                         
 0     003f82ce  _CMP6INT_ISR                         
-0     003f86d6  _ConfigCpuTimer                      
+0     003f86f1  _ConfigCpuTimer                      
 1     00008140  _CpuTimer0                           
 1     00000c00  _CpuTimer0Regs                       
 1     00008148  _CpuTimer1                           
@@ -470,13 +396,13 @@ page  address   name
 1     00000c10  _CpuTimer2Regs                       
 1     003f7ff8  _CsmPwl                              
 1     00000ae0  _CsmRegs                             
-0     003f857b  _CsmUnlock                           
+0     003f8604  _CsmUnlock                           
 0     003f8381  _DAC_envia                           
 0     003f834b  _DAC_inici                           
 0     003f8206  _DATALOG_ISR                         
-0     003f89f6  _DSP28x_usDelay                      
+0     003f89e7  _DSP28x_usDelay                      
 1     00000880  _DevEmuRegs                          
-0     003f8538  _DisableDog                          
+0     003f85c1  _DisableDog                          
 0     003f8332  _ECAN0INTA_ISR                       
 0     003f8337  _ECAN1INTA_ISR                       
 1     00006040  _ECanaLAMRegs                        
@@ -486,7 +412,7 @@ page  address   name
 1     00006000  _ECanaRegs                           
 0     003f833c  _EMPTY_ISR                           
 0     003f8210  _EMUINT_ISR                          
-0     003f88a1  _EnableInterrupts                    
+0     003f88c0  _EnableInterrupts                    
 1     00007400  _EvaRegs                             
 1     00007500  _EvbRegs                             
 1     00000a80  _FlashRegs                           
@@ -495,68 +421,20 @@ page  address   name
 0     003f821a  _ILLEGAL_ISR                         
 0     003f81fc  _INT13_ISR                           
 0     003f8201  _INT14_ISR                           
-0     003ffad8  _IQ10mpyRndSatTable                  
-0     003ffacc  _IQ11mpyRndSatTable                  
-0     003ffac0  _IQ12mpyRndSatTable                  
-0     003ffab4  _IQ13mpyRndSatTable                  
-0     003ffaa8  _IQ14mpyRndSatTable                  
-0     003ffa9c  _IQ15mpyRndSatTable                  
-0     003ffa90  _IQ16mpyRndSatTable                  
-0     003ffa84  _IQ17mpyRndSatTable                  
-0     003ffa78  _IQ18mpyRndSatTable                  
-0     003ffa6c  _IQ19mpyRndSatTable                  
-0     003ffb44  _IQ1mpyRndSatTable                   
-0     003ffa60  _IQ20mpyRndSatTable                  
-0     003ffa54  _IQ21mpyRndSatTable                  
-0     003ffa48  _IQ22mpyRndSatTable                  
-0     003ffa3c  _IQ23mpyRndSatTable                  
-0     003ffa30  _IQ24mpyRndSatTable                  
-0     003ffa24  _IQ25mpyRndSatTable                  
-0     003ffa18  _IQ26mpyRndSatTable                  
-0     003ffa0c  _IQ27mpyRndSatTable                  
-0     003ffa00  _IQ28mpyRndSatTable                  
-0     003ff9f4  _IQ29mpyRndSatTable                  
-0     003ffb38  _IQ2mpyRndSatTable                   
-0     003ff9e8  _IQ30mpyRndSatTable                  
-0     003ffb2c  _IQ3mpyRndSatTable                   
-0     003ffb20  _IQ4mpyRndSatTable                   
-0     003ffb14  _IQ5mpyRndSatTable                   
-0     003ffb08  _IQ6mpyRndSatTable                   
-0     003ffafc  _IQ7mpyRndSatTable                   
-0     003ffaf0  _IQ8mpyRndSatTable                   
-0     003ffae4  _IQ9mpyRndSatTable                   
-0     003ff824  _IQatan2HalfPITable                  
-0     003ff862  _IQatan2Table                        
-0     003ff9e8  _IQatan2TableEnd                     
-0     003ff100  _IQcosTable                          
-0     003ff502  _IQcosTableEnd                       
-0     003ff502  _IQdivRoundSatTable                  
-0     003ff510  _IQdivTable                          
-0     003ff712  _IQdivTableEnd                       
-0     003ff712  _IQisqrtRoundSatTable                
-0     003ff722  _IQisqrtTable                        
-0     003ff824  _IQisqrtTableEnd                     
-0     003ff9e8  _IQmpyRndSatTable                    
-0     003ffb50  _IQmpyRndSatTableEnd                 
-0     003ff000  _IQsinTable                          
-0     003ff400  _IQsinTableEnd                       
-0     003ff712  _IQsqrtRoundSatTable                 
-0     003ff722  _IQsqrtTable                         
-0     003ff824  _IQsqrtTableEnd                      
-0     003f869d  _InitCpuTimers                       
-0     003f862f  _InitEv                              
-0     003f87b5  _InitGpio                            
-0     003f8561  _InitPeripheralClocks                
-0     003f8882  _InitPieCtrl                         
-0     003f88f2  _InitPieVectTable                    
-0     003f8540  _InitPll                             
-0     003f8526  _InitSysCtrl                         
-0     003f852e  _KickDog                             
+0     003f86b8  _InitCpuTimers                       
+0     003f85aa  _InitEv                              
+0     003f877c  _InitGpio                            
+0     003f85ea  _InitPeripheralClocks                
+0     003f88a1  _InitPieCtrl                         
+0     003f88ed  _InitPieVectTable                    
+0     003f85c9  _InitPll                             
+0     003f85af  _InitSysCtrl                         
+0     003f85b7  _KickDog                             
 0     003f8314  _MRINTA_ISR                          
 0     003f8319  _MXINTA_ISR                          
 1     00007800  _McbspaRegs                          
 0     003f8215  _NMI_ISR                             
-1     00008138  _ONOFF                               
+1     00008158  _ONOFF                               
 0     003f825b  _PDPINTA_ISR                         
 0     003f8260  _PDPINTB_ISR                         
 0     003f8341  _PIE_RESERVED                        
@@ -572,7 +450,7 @@ page  address   name
 0     003f830f  _SPITXINTA_ISR                       
 1     00007050  _SciaRegs                            
 1     00007750  _ScibRegs                            
-0     003f89c7  _SetDBGIER                           
+0     003f89e1  _SetDBGIER                           
 1     00007040  _SpiaRegs                            
 1     00007010  _SysCtrlRegs                         
 0     003f8292  _T1CINT_ISR                          
@@ -609,39 +487,38 @@ page  address   name
 0     003f826a  _XINT2_ISR                           
 1     00007070  _XIntruptRegs                        
 1     00000b20  _XintfRegs                           
-0     003f89cd  __IQ24sinPU                          
 1     00000800  __STACK_END                          
 abs   00000400  __STACK_SIZE                         
-1     00008134  ___TI_cleanup_ptr                    
-1     00008136  ___TI_dtors_ptr                      
-1     00008132  ___TI_enable_exit_profile_output     
+1     0000813a  ___TI_cleanup_ptr                    
+1     0000813c  ___TI_dtors_ptr                      
+1     00008138  ___TI_enable_exit_profile_output     
 abs   ffffffff  ___TI_pprof_out_hndl                 
 abs   ffffffff  ___TI_prof_data_size                 
 abs   ffffffff  ___TI_prof_data_start                
 abs   ffffffff  ___binit__                           
 abs   ffffffff  ___c_args__                          
 0     00000000  ___cinit__                           
-0     003f89cd  ___etext__                           
+0     003f89e7  ___etext__                           
 abs   ffffffff  ___pinit__                           
 0     003f8002  ___text__                            
-0     003f8997  __args_main                          
-1     0000813e  __lock                               
-0     003f89be  __nop                                
-0     003f89ba  __register_lock                      
-0     003f89b6  __register_unlock                    
+0     003f89b1  __args_main                          
+1     0000815c  __lock                               
+0     003f89d8  __nop                                
+0     003f89d4  __register_lock                      
+0     003f89d0  __register_unlock                    
 1     00000400  __stack                              
-0     003f89cc  __system_post_cinit                  
-0     003f89ca  __system_pre_init                    
-1     00008158  __unlock                             
-0     003f8830  _abort                               
+0     003f89e6  __system_post_cinit                  
+0     003f89e4  __system_pre_init                    
+1     0000815e  __unlock                             
+0     003f884f  _abort                               
 0     003f8044  _allGPIOSloff                        
 0     003f8051  _allGPIOSon                          
-1     0000813a  _alpha                               
-1     0000813d  _buttoncounter                       
-0     003f8761  _c_int00                             
+1     0000815a  _alpha                               
+1     0000813f  _buttoncounter                       
+0     003f87d0  _c_int00                             
 0     003f80a8  _checkbit                            
-0     003f88ce  _copy_in                             
-1     00008118  _dacstruct                           
+0     003f88c9  _copy_in                             
+1     0000811e  _dacstruct                           
 0     003f8002  _delay                               
 1     00008110  _dummy1                              
 0     003f811e  _ejercicio1_ledblink                 
@@ -650,26 +527,31 @@ abs   ffffffff  ___pinit__
 0     003f816d  _ejercicio4_secretpassword           
 0     003f81e5  _enabledisable_PWMs                  
 0     003f8178  _enableinterruptTIM0                 
-0     003f8832  _exit                                
-0     003f87fd  _interrupt_timer0                    
+0     003f8851  _exit                                
+0     003f8594  _initQEP                             
+0     003f8526  _initpwm1Andpwm2                     
+0     003f8824  _interrupt_timer0                    
 0     003f80b8  _isGPB4Buttonpresed_incrementVariable
 0     003f80c6  _isGPB4Buttonpresed_setnewpassword   
 0     003f80ed  _issecretpassowrdCorrect             
-0     003f88aa  _main                                
-0     003f8912  _memcpy                              
+0     003f890d  _main                                
+0     003f892c  _memcpy                              
+1     0000811c  _motor_rpm                           
 1     00008112  _rampa                               
 1     00008114  _rampa_incr                          
+1     0000811a  _revolutionper5ms                    
 0     003f8346  _rsvd_ISR                            
 0     003f81b0  _runmotorpwm_PUiq19                  
-1     0000813c  _secretpassword                      
+1     0000813e  _secretpassword                      
 0     003f8199  _setupForDACexercice                 
 0     003f81ad  _setupForPWM                         
 1     00008116  _sinus                               
+1     00008118  _ticksper5ms                         
 0     003f8083  _turnSingleLEDoff                    
 0     003f805e  _turnSingleLEDon                     
 abs   ffffffff  binit                                
 0     00000000  cinit                                
-0     003f89cd  etext                                
+0     003f89e7  etext                                
 abs   ffffffff  pinit                                
 
 
@@ -770,94 +652,47 @@ page  address   name
 0     003f8381  _DAC_envia                           
 0     003f83ff  FD$$ADD                              
 0     003f849b  FD$$DIV                              
-0     003f8526  _InitSysCtrl                         
-0     003f852e  _KickDog                             
-0     003f8538  _DisableDog                          
-0     003f8540  _InitPll                             
-0     003f8561  _InitPeripheralClocks                
-0     003f857b  _CsmUnlock                           
-0     003f85ac  FD$$MPY                              
-0     003f862f  _InitEv                              
-0     003f869d  _InitCpuTimers                       
-0     003f86d6  _ConfigCpuTimer                      
-0     003f8707  FS$$MPY                              
-0     003f8761  _c_int00                             
-0     003f87b5  _InitGpio                            
-0     003f87fd  _interrupt_timer0                    
-0     003f8830  C$$EXIT                              
-0     003f8830  _abort                               
-0     003f8832  _exit                                
-0     003f8859  FS$$TOL                              
-0     003f8882  _InitPieCtrl                         
-0     003f88a1  _EnableInterrupts                    
-0     003f88aa  _main                                
-0     003f88ce  _copy_in                             
-0     003f88f2  _InitPieVectTable                    
-0     003f8912  _memcpy                              
-0     003f892f  L$$TOFD                              
-0     003f894b  FD$$TOUL                             
-0     003f8966  L$$TOFS                              
-0     003f8980  FS$$CMP                              
-0     003f8997  __args_main                          
-0     003f89a8  FD$$SUB                              
-0     003f89b6  __register_unlock                    
-0     003f89ba  __register_lock                      
-0     003f89be  __nop                                
-0     003f89c7  _SetDBGIER                           
-0     003f89ca  __system_pre_init                    
-0     003f89cc  __system_post_cinit                  
-0     003f89cd  __IQ24sinPU                          
-0     003f89cd  ___etext__                           
-0     003f89cd  etext                                
-0     003f89f6  _DSP28x_usDelay                      
-0     003ff000  _IQsinTable                          
-0     003ff100  _IQcosTable                          
-0     003ff400  _IQsinTableEnd                       
-0     003ff502  _IQcosTableEnd                       
-0     003ff502  _IQdivRoundSatTable                  
-0     003ff510  _IQdivTable                          
-0     003ff712  _IQdivTableEnd                       
-0     003ff712  _IQisqrtRoundSatTable                
-0     003ff712  _IQsqrtRoundSatTable                 
-0     003ff722  _IQisqrtTable                        
-0     003ff722  _IQsqrtTable                         
-0     003ff824  _IQatan2HalfPITable                  
-0     003ff824  _IQisqrtTableEnd                     
-0     003ff824  _IQsqrtTableEnd                      
-0     003ff862  _IQatan2Table                        
-0     003ff9e8  _IQ30mpyRndSatTable                  
-0     003ff9e8  _IQatan2TableEnd                     
-0     003ff9e8  _IQmpyRndSatTable                    
-0     003ff9f4  _IQ29mpyRndSatTable                  
-0     003ffa00  _IQ28mpyRndSatTable                  
-0     003ffa0c  _IQ27mpyRndSatTable                  
-0     003ffa18  _IQ26mpyRndSatTable                  
-0     003ffa24  _IQ25mpyRndSatTable                  
-0     003ffa30  _IQ24mpyRndSatTable                  
-0     003ffa3c  _IQ23mpyRndSatTable                  
-0     003ffa48  _IQ22mpyRndSatTable                  
-0     003ffa54  _IQ21mpyRndSatTable                  
-0     003ffa60  _IQ20mpyRndSatTable                  
-0     003ffa6c  _IQ19mpyRndSatTable                  
-0     003ffa78  _IQ18mpyRndSatTable                  
-0     003ffa84  _IQ17mpyRndSatTable                  
-0     003ffa90  _IQ16mpyRndSatTable                  
-0     003ffa9c  _IQ15mpyRndSatTable                  
-0     003ffaa8  _IQ14mpyRndSatTable                  
-0     003ffab4  _IQ13mpyRndSatTable                  
-0     003ffac0  _IQ12mpyRndSatTable                  
-0     003ffacc  _IQ11mpyRndSatTable                  
-0     003ffad8  _IQ10mpyRndSatTable                  
-0     003ffae4  _IQ9mpyRndSatTable                   
-0     003ffaf0  _IQ8mpyRndSatTable                   
-0     003ffafc  _IQ7mpyRndSatTable                   
-0     003ffb08  _IQ6mpyRndSatTable                   
-0     003ffb14  _IQ5mpyRndSatTable                   
-0     003ffb20  _IQ4mpyRndSatTable                   
-0     003ffb2c  _IQ3mpyRndSatTable                   
-0     003ffb38  _IQ2mpyRndSatTable                   
-0     003ffb44  _IQ1mpyRndSatTable                   
-0     003ffb50  _IQmpyRndSatTableEnd                 
+0     003f8526  _initpwm1Andpwm2                     
+0     003f8594  _initQEP                             
+0     003f85aa  _InitEv                              
+0     003f85af  _InitSysCtrl                         
+0     003f85b7  _KickDog                             
+0     003f85c1  _DisableDog                          
+0     003f85c9  _InitPll                             
+0     003f85ea  _InitPeripheralClocks                
+0     003f8604  _CsmUnlock                           
+0     003f8635  FD$$MPY                              
+0     003f86b8  _InitCpuTimers                       
+0     003f86f1  _ConfigCpuTimer                      
+0     003f8722  FS$$MPY                              
+0     003f877c  _InitGpio                            
+0     003f87d0  _c_int00                             
+0     003f8824  _interrupt_timer0                    
+0     003f884f  C$$EXIT                              
+0     003f884f  _abort                               
+0     003f8851  _exit                                
+0     003f8878  FS$$TOL                              
+0     003f88a1  _InitPieCtrl                         
+0     003f88c0  _EnableInterrupts                    
+0     003f88c9  _copy_in                             
+0     003f88ed  _InitPieVectTable                    
+0     003f890d  _main                                
+0     003f892c  _memcpy                              
+0     003f8949  L$$TOFD                              
+0     003f8965  FD$$TOUL                             
+0     003f8980  L$$TOFS                              
+0     003f899a  FS$$CMP                              
+0     003f89b1  __args_main                          
+0     003f89c2  FD$$SUB                              
+0     003f89d0  __register_unlock                    
+0     003f89d4  __register_lock                      
+0     003f89d8  __nop                                
+0     003f89e1  _SetDBGIER                           
+0     003f89e4  __system_pre_init                    
+0     003f89e6  __system_post_cinit                  
+0     003f89e7  _DSP28x_usDelay                      
+0     003f89e7  ___etext__                           
+0     003f89e7  etext                                
 1     00000400  __stack                              
 1     00000800  __STACK_END                          
 1     00000880  _DevEmuRegs                          
@@ -890,19 +725,22 @@ page  address   name
 1     00008112  _rampa                               
 1     00008114  _rampa_incr                          
 1     00008116  _sinus                               
-1     00008118  _dacstruct                           
-1     00008132  ___TI_enable_exit_profile_output     
-1     00008134  ___TI_cleanup_ptr                    
-1     00008136  ___TI_dtors_ptr                      
-1     00008138  _ONOFF                               
-1     0000813a  _alpha                               
-1     0000813c  _secretpassword                      
-1     0000813d  _buttoncounter                       
-1     0000813e  __lock                               
+1     00008118  _ticksper5ms                         
+1     0000811a  _revolutionper5ms                    
+1     0000811c  _motor_rpm                           
+1     0000811e  _dacstruct                           
+1     00008138  ___TI_enable_exit_profile_output     
+1     0000813a  ___TI_cleanup_ptr                    
+1     0000813c  ___TI_dtors_ptr                      
+1     0000813e  _secretpassword                      
+1     0000813f  _buttoncounter                       
 1     00008140  _CpuTimer0                           
 1     00008148  _CpuTimer1                           
 1     00008150  _CpuTimer2                           
-1     00008158  __unlock                             
+1     00008158  _ONOFF                               
+1     0000815a  _alpha                               
+1     0000815c  __lock                               
+1     0000815e  __unlock                             
 1     003f7ff8  _CsmPwl                              
 abs   00000400  __STACK_SIZE                         
 abs   ffffffff  ___TI_pprof_out_hndl                 
@@ -914,4 +752,4 @@ abs   ffffffff  ___pinit__
 abs   ffffffff  binit                                
 abs   ffffffff  pinit                                
 
-[236 symbols]
+[192 symbols]

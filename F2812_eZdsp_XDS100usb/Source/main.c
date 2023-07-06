@@ -56,7 +56,8 @@ void main(void)
     // This function is found in DSP28_InitPeripherals.c
     // InitPeripherals();  // For this example just init the CPU Timers
     InitCpuTimers();
-    enableinterruptTIM0(1000);//1ms = 1 kHz
+    //enableinterruptTIM0(1000);//1ms = 1 kHz
+    //enableinterruptTIM0(5000);//5ms = 200Hz
 
 // Step 5. User specific functions, Reassign vectors (optional), Enable Interrupts:
     //InitAdc();    // Inicialitzo el ADC
