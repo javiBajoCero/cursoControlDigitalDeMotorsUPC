@@ -270,6 +270,16 @@ void disableMotorafterXturns(Uint32 X,_iq19 speed_pu){
     }
 }
 
+//to be put in main,
+void ejerciciolab4_10turns_wait2000_changedirection(_iq19 * speed){
+    if(ONOFF==OFF){
+        delay(2000);
+        turncount_limit=0;
+        *speed=-*speed;
+        disableMotorafterXturns(10, *speed);
+    }
+}
+
 
 
 

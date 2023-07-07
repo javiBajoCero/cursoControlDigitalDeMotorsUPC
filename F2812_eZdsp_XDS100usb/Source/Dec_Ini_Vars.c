@@ -19,4 +19,4 @@ Uint32 turncount=0;
 Uint32 turncount_limit=0;
 
 _iq19 alpha= _IQ19(0.0);// de +1.0 (full foward) a -1.0(full backwars), 0.0 (stop)
-ON_OFF_enum ONOFF=ON;         //1=PWM ON, 0= PWM off
+ON_OFF_enum ONOFF=OFF;         //1=PWM ON, 0= PWM off

@@ -80,3 +80,4 @@ extern _iq19 alpha;
 extern ON_OFF_enum ONOFF;
 
 void disableMotorafterXturns(Uint32 X,_iq19 speed_pu);
+void ejerciciolab4_10turns_wait2000_changedirection(_iq19 *speed);
