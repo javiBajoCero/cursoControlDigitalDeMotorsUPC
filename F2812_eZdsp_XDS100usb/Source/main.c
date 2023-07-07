@@ -17,8 +17,7 @@
 
 // Prototype statements for functions found within this file.
 
-_iq19 alpha= _IQ19(0.0);// de +1.0 (full foward) a -1.0(full backwars), 0.0 (stop)
-ON_OFF_enum ONOFF=ON;         //1=PWM ON, 0= PWM off
+
 
 void main(void)
 {
@@ -79,6 +78,7 @@ void main(void)
        //ejercicio4_secretpassword();
         enabledisable_PWMs(ONOFF);
         runmotorpwm_PUiq19(alpha);
+        disableMotorafterXturns(2, _IQ19(0.1));
 
     }
 

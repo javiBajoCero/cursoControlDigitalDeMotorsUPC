@@ -72,3 +72,11 @@ void enabledisable_PWMs(ON_OFF_enum ONOFF);
 extern Uint32 ticksper5ms;
 extern _iq19 revolutionper5ms;
 extern _iq10 motor_rpm;
+extern Uint32 tickcount;
+extern Uint32 turncount;
+extern Uint32 turncount_limit;
+
+extern _iq19 alpha;
+extern ON_OFF_enum ONOFF;
+
+void disableMotorafterXturns(Uint32 X,_iq19 speed_pu);

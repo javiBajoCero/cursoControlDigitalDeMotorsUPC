@@ -259,6 +259,17 @@ void enabledisable_PWMs(ON_OFF_enum ONOFF){
 
 }
 
+//turns the motor X turns at speed_pu speed.
+void disableMotorafterXturns(Uint32 X,_iq19 speed_pu){
+    if(turncount_limit==0){
+        ONOFF=ON;
+        alpha=speed_pu;
+        tickcount=0;
+        turncount=0;
+        turncount_limit=X;
+    }
+}
+
 
 
 
