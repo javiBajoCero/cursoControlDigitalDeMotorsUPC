@@ -76,10 +76,12 @@ void main(void)
        //ejercicio2_cochefantastico();
        //ejercicio3_contadorbinarioboton();
        //ejercicio4_secretpassword();
-        enabledisable_PWMs(ONOFF);
-        runmotorpwm_PUiq19(alpha);
+        turncount_limit=0;
         disableMotorafterXturns(2, _IQ19(0.1));
-
+        delay(1000);
+        turncount_limit=0;
+        disableMotorafterXturns(2, _IQ19(-0.1));
+        delay(1000);
     }
 
 }

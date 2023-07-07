@@ -14,7 +14,8 @@ interrupt void interrupt_timer0(void){
 //    sinus = _IQsinPU(rampa)+_IQ(1.0);
 //
 //    DAC_envia(&dacstruct);
-
+    enabledisable_PWMs(ONOFF);
+    runmotorpwm_PUiq19(alpha);
     //QEP
     if(alpha!=_IQ19(0.0)){//the motor encoder keeps adding because of the idle wobble of the motor
 
