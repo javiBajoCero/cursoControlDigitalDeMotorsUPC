@@ -30,12 +30,19 @@ void InitGpio(void)
      GpioMuxRegs.GPAMUX.bit.PWM2_GPIOA1=1;  // gpio A1 as PWM2
      GpioMuxRegs.GPAMUX.bit.PWM3_GPIOA2=1;  // gpio A2 as PWM3
      GpioMuxRegs.GPAMUX.bit.PWM4_GPIOA3=1;  // gpio A3 as PWM4
+     GpioMuxRegs.GPAMUX.bit.CAP1Q1_GPIOA8   =1; //gpio A8 as QEP1
+     GpioMuxRegs.GPAMUX.bit.CAP2Q2_GPIOA9   =1; //gpio A9 as QEP2
+     GpioMuxRegs.GPAMUX.bit.CAP3QI1_GPIOA10 =1; //gpio A10 as QEPI1
 
      GpioMuxRegs.GPADIR.all=0xFF00;    	// upper byte as output/low byte as input
      GpioMuxRegs.GPADIR.bit.GPIOA0=1;   // gpio A0 as output
      GpioMuxRegs.GPADIR.bit.GPIOA1=1;   // gpio A1 as output
      GpioMuxRegs.GPADIR.bit.GPIOA2=1;   // gpio A2 as output
      GpioMuxRegs.GPADIR.bit.GPIOA3=1;   // gpio A3 as output
+
+     GpioMuxRegs.GPADIR.bit.GPIOA8  =0;   // gpio A8 as input
+     GpioMuxRegs.GPADIR.bit.GPIOA9  =0;   // gpio A9 as input
+     GpioMuxRegs.GPADIR.bit.GPIOA10 =0;   // gpio A10 as input
 
      GpioMuxRegs.GPAQUAL.all=0x0000;	// Input qualifier disabled
 
@@ -44,19 +51,15 @@ void InitGpio(void)
 // Set bits to 1 to configure peripherals signals on the pins
      ////GPIO B CONFIG
      GpioMuxRegs.GPBMUX.all=0x0000;
-     GpioMuxRegs.GPBMUX.bit.CAP4Q1_GPIOB8   =1; // gpio B8 as QEP1  (CA_DC)
-     GpioMuxRegs.GPBMUX.bit.CAP5Q2_GPIOB9   =1; // gpio B8 as QEP2  (CB_DC)
-     GpioMuxRegs.GPBMUX.bit.CAP6QI2_GPIOB10 =1; // gpio B8 as QEPI2 (CI_DC)
-
+     //CA ==CAP1_QEP1
+     //CB ==CAP2_QEP2
+     //CI ==CAP3_QEPI1
      GpioMuxRegs.GPBDIR.bit.GPIOB2=1;        // 1=output
      GpioMuxRegs.GPBDIR.bit.GPIOB3=1;        // 1=output
      GpioMuxRegs.GPBDIR.bit.GPIOB4=0;        // 0=input white button S1
      GpioMuxRegs.GPBDIR.bit.GPIOB5=0;        // 0=input red switch S3-1
      GpioMuxRegs.GPBDIR.bit.GPIOB6=0;        // 0=input red switch S3-2
      GpioMuxRegs.GPBDIR.bit.GPIOB7=0;        // 0=input red switch S3-3
-     GpioMuxRegs.GPBDIR.bit.GPIOB8=0;           // 0=input CA_DC
-     GpioMuxRegs.GPBDIR.bit.GPIOB9=0;           // 0=input CB_DC
-     GpioMuxRegs.GPBDIR.bit.GPIOB10=0;          // 0=input CI_DC
 
 
      GpioMuxRegs.GPBQUAL.bit.QUALPRD=8;	// Input qualifier enabled with period 8

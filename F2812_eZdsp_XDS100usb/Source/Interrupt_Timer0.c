@@ -16,7 +16,7 @@ interrupt void interrupt_timer0(void){
 //    DAC_envia(&dacstruct);
 
     //QEP
-    ticksper5ms=EvbRegs.T4CNT;                      //5ms passed, how many ticks
+    ticksper5ms=EvaRegs.T2CNT;                      //5ms passed, how many ticks
     revolutionper5ms=ticksper5ms*_IQ19(0.0005);     //the encoder has 2000ticks/revolution.
     motor_rpm=fivems_inside_1_minute*revolutionper5ms; //translating from 5ms to one minute
     EvbRegs.T4CNT=0;//reset counter for next time

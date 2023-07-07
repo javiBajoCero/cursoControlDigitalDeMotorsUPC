@@ -14,13 +14,16 @@
 #include "DSP281x_Device.h"     // DSP281x Headerfile Include File
 #include "DSP281x_Examples.h"   // DSP281x Examples Include File
 
-
-//sets up everything needed to use the H bridge to drive the motor in the testbed
-void initpwm1Andpwm2(void){
+//event A needs to be active before all configurations for Tim1 and Tim2
+void initEVA(){
     // Peripheral clock enables set for the selected peripherals.
     EALLOW;
     SysCtrlRegs.PCLKCR.bit.EVAENCLK=1;//1 enable - 0 disable
     EDIS;
+}
+//sets up everything needed to use the H bridge to drive the motor in the testbed
+void initTIM1_pwm1_Npwm1_pwm2_Npwm2(void){
+
 
     // Initialization of the dead band timer control register
     EvaRegs.DBTCONA.bit.EDBT1 = 1; // Enable dead band timer 1
@@ -64,51 +67,24 @@ void initpwm1Andpwm2(void){
 }
 
 //setsup the quadrature encoder attached to the motor in the testbed
-void initQEP(void){
+void initTIM2_QEP(void){
     //painfully extracted from the provided HW schematics.
-    //CA_DC ==CAP4_QEP3
-    //CB_DC ==CAP5_QEP4
-    //CI_DC ==CAP6_QEPI2
+    //CA ==CAP1_QEP1
+    //CB ==CAP2_QEP2
+    //CI ==CAP3_QEPI1
 
-    // Peripheral clock enables set for the selected peripherals.
-    EALLOW;
-    SysCtrlRegs.PCLKCR.bit.EVBENCLK=1;//1 enable - 0 disable
-    EDIS;
 
 // SPRU065E https://www.ti.com/lit/ug/spru065e/spru065e.pdf?ts=1688512663363&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FTMS320F2810
-//    3.5 Quadrature Encoder Pulse (QEP) Circuit
-//    Each Event Manager module has a quadrature encoder pulse (QEP) circuit.
-//    The QEP circuit, when enabled, decodes and counts the quadrature encoded
-//    input pulses on pins CAP1/QEP1 and CAP2/QEP2 (in case of EVA) or
-//    CAP4/QEP3 and CAP5/QEP4 (in case of EVB). The QEP circuit can be used
-//    to interface with an optical encoder to get position and speed information from
-//    a rotating machine.
-/////When the QEP circuit is enabled, the capture function on CAP1/CAP2 and CAP4/CAP5 pins is disabled.
-
-
-//    3.5.2 QEP Circuit Time Base
-//    The time base for the QEP circuit is provided by GP timer 4,
-//    . The GP timer must be put in directional-up/down count mode with the
-//    QEP circuit as the clock source. Figure 3−3 shows the block diagram of the
-//    QEP circuit for EVA and Figure 3−4 shows the block diagram of the QEP circuit
-//    for EVB.
-    // Initialization of the Timer 3
-
-
-
 //    3.5.5 Register Setup for the QEP Circuit
-//    To start the operation of the QEP circuit in EVB:
-//    1) Load GP timer 4s counter, period, and compare registers with desired values,
-//    if necessary
-    EvbRegs.T4PR=0xFF;//Maximum uint16 value.
-
-//    2) Configure T4CON to set GP timer 4 in directional-up/down mode with the
-//    QEP circuits as clock source, and enable the selected timer
-    EvbRegs.T4CON.bit.TECMPR    =1;// Timer 4 Compare enabled
-    EvbRegs.T4CON.bit.TCLKS10   =3; // Timer 4 Clock source set to QEP circuit
-    EvbRegs.T4CON.bit.TENABLE   =1; // Timer 4 enabled
-    EvbRegs.T4CON.bit.TPS       =0; // preescaler to 1, 25Mhz
-    EvbRegs.T4CON.bit.TMODE     =3; // Directional-Up/-Down Count Mode
+//    To start the operation of the QEP circuit in EVA:
+//    1) Load GP timer 2’s counter, period, and compare registers with desired values, if necessary
+    EvaRegs.T2PR=0xFF;//Maximum uint16 value.
+//    2) Configure T2CON to set GP timer 2 in directional-up/down mode with the QEP circuits as clock source, and enable the selected timer
+    EvaRegs.T2CON.bit.TECMPR    =1;// Timer 4 Compare enabled
+    EvaRegs.T2CON.bit.TCLKS10   =3; // Timer 4 Clock source set to QEP circuit
+    EvaRegs.T2CON.bit.TENABLE   =1; // Timer 4 enabled
+    EvaRegs.T2CON.bit.TPS       =0; // preescaler to 1, 25Mhz
+    EvaRegs.T2CON.bit.TMODE     =3; // Directional-Up/-Down Count Mode
 }
 
 //---------------------------------------------------------------------------
@@ -118,8 +94,9 @@ void initQEP(void){
 //
 void InitEv(void)
 {
-    initpwm1Andpwm2();
-    initQEP();
+    initEVA();
+    initTIM1_pwm1_Npwm1_pwm2_Npwm2();
+    initTIM2_QEP();
 }
 
 //===========================================================================
