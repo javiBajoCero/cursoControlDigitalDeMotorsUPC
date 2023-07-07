@@ -12,4 +12,4 @@ DAC_tipus dacstruct = DAC_def;
 
 Uint32 ticksper5ms=0;
 _iq19 revolutionper5ms=0;
-_iq19 motor_rpm=0;
+_iq10 motor_rpm=0;

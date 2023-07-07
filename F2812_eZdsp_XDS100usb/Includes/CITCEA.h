@@ -71,4 +71,4 @@ void enabledisable_PWMs(ON_OFF_enum ONOFF);
 
 extern Uint32 ticksper5ms;
 extern _iq19 revolutionper5ms;
-extern _iq19 motor_rpm;
+extern _iq10 motor_rpm;

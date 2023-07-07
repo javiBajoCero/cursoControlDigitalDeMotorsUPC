@@ -1,7 +1,7 @@
 #include "DSP281x_Device.h"
 
-#define fivems_inside_1_minute 60000/5
-
+#define fivems_inside_1_minute 12000  //60000ms/5ms
+#define QEPricksregister EvaRegs.T2CNT
 //tim0 INTERRUPT ROUTINE
 interrupt void interrupt_timer0(void){
     TOGGLE_LED8;
@@ -16,10 +16,10 @@ interrupt void interrupt_timer0(void){
 //    DAC_envia(&dacstruct);
 
     //QEP
-    ticksper5ms=EvaRegs.T2CNT;                      //5ms passed, how many ticks
-    revolutionper5ms=ticksper5ms*_IQ19(0.0005);     //the encoder has 2000ticks/revolution.
-    motor_rpm=fivems_inside_1_minute*revolutionper5ms; //translating from 5ms to one minute
-    EvbRegs.T4CNT=0;//reset counter for next time
+    ticksper5ms=QEPricksregister;                                               //5ms passed, how many ticks
+    revolutionper5ms=ticksper5ms*_IQ19(0.0005);                                 //the encoder has 2000ticks/revolution.//TODO i suspect is not 2000, is 500
+    motor_rpm=fivems_inside_1_minute*_IQtoIQ10(_IQ19toIQ(revolutionper5ms));                          //translating from 5ms to one minute
+    QEPricksregister=0;                                                         //reset counter for next time
 
     PieCtrlRegs.PIEACK.all= PIEACK_GROUP1;
 }
