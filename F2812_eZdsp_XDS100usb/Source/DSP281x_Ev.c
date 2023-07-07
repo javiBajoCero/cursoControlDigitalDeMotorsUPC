@@ -61,15 +61,6 @@ void initpwm1Andpwm2(void){
    EvaRegs.T1CON.bit.FREE      = 1; // Free run mode
    EvaRegs.T1CON.bit.SOFT      = 0;
 
-   // Initialization of the Timer 2 control registers
-   EvaRegs.T2CON.bit.TECMPR    = 1; // Timer 2 Compare enabled
-   EvaRegs.T2CON.bit.TCLD10    = 1; // Compare to reload when counter equals zero or period register
-   EvaRegs.T2CON.bit.TCLKS10   = 0; // Timer 2 Clock source set to internal (HSPCLK)
-   EvaRegs.T2CON.bit.TENABLE   = 1; // Timer 2 enabled
-   EvaRegs.T2CON.bit.TPS       = 0; // preescaler to 2, 25Mhz
-   EvaRegs.T2CON.bit.TMODE     = 1; // Continuous up-down counting
-   EvaRegs.T2CON.bit.FREE      = 1; // Free run mode
-   EvaRegs.T2CON.bit.SOFT      = 0;
 }
 
 //setsup the quadrature encoder attached to the motor in the testbed
