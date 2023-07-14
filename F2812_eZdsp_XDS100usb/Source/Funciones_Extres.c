@@ -280,6 +280,69 @@ void ejerciciolab4_10turns_wait2000_changedirection(_iq19 * speed){
     }
 }
 
+//funcion de interruptiocn de fin de conversion del ADC
+interrupt void interrupt_ADC(void){
+    TOGGLE_LED8;
+}
+
+//init ADC,
+void setupforADC(void){
+// To powerup the ADC the ADCENCLK bit should be set first to enable
+// clocks, followed by powering up the bandgap and reference circuitry.
+// After a 5ms delay the rest of the ADC can be powered up. After ADC
+// powerup, another 20us delay is required before performing the first
+// ADC conversion. Please note that for the delay function below to
+// operate correctly the CPU_CLOCK_SPEED define statement in the
+// DSP28_Examples.h file must contain the correct CPU clock period in
+// nanoseconds. For example:
+
+EALLOW;
+PieVectTable.ADCINT = &interrupt_ADC;
+EDIS;
+
+AdcRegs.ADCTRL3.bit.ADCBGRFDN=0x3;  // Power up bandgap/reference circuitry
+DELAY_US(ADC_usDELAY);              // Delay before powering up rest of ADC
+AdcRegs.ADCTRL3.bit.ADCPWDN=1;      // Power up rest of ADC
+DELAY_US(ADC_usDELAY2);             // Delay after powering up ADC
+
+// Initialization of the ADC Registers
+AdcRegs.ADCTRL3.bit.ADCCLKPS=0x0003;    // ADC Clock Prescaler ADClcock=Hclock/2*ADCCLKPS, 150/2*3=25Mhz
+AdcRegs.ADCTRL3.bit.SMODE_SEL=1;        // 0 -> Sequential sampling mode, 1 -> Simultaneous sampling mode
+AdcRegs.ADCTRL1.bit.SEQ_CASC=1;         // 0 sets Dual Mode, 1 sets cascaded mode
+AdcRegs.ADCTRL1.bit.SEQ_OVRD=0;         // 0 sets the pointer reset at the end of MAX_CONV1, 1 sets the pointer reset at the end of "end state"
+AdcRegs.ADCTRL1.bit.CONT_RUN=1;         // 0 stops after reaching end of sequence, 1 doesn't stop
+AdcRegs.ADCTRL1.bit.CPS=0;              // Conversion prescaler (0 -> CLK/1, 1 -> CLK/2)
+AdcRegs.ADCTRL1.bit.ACQ_PS=0xFFFF;      // Aquistion time prescaler (S/H window = (ACQ_PS + 1)*(1/ADCCLK)
+AdcRegs.ADCTRL1.bit.SUSMOD=0;           // 00 -> Free run, 01 -> Stop after current sequence, 10 -> Stop after current conversion, 11 -> Stop immediately
+AdcRegs.ADCTRL1.bit.RESET=0;            // 1 resets the ADC
+
+//AdcRegs.ADCTRL2.bit.EVB_SOC_SEQ2  = 0; // 1 allows the start trigger to be set to the same as the EVB trigger
+//AdcRegs.ADCTRL2.bit.INT_MOD_SEQ2  = 0; // 0 interrupts every EOS, 1 every other EOS (EOS = End of Sampling)
+//AdcRegs.ADCTRL2.bit.INT_ENA_SEQ2  = 1; // 1 enables the interrupt, 0 disables it
+//AdcRegs.ADCTRL2.bit.SOC_SEQ2    = 1; // 0 clears the pending trigger, 1 allows a software trigger to start SEQ2 (Only for dual-sequencer mode)
+//AdcRegs.ADCTRL2.bit.RST_SEQ2      = 1; // 1 resets SEQ2 to its initial state
+AdcRegs.ADCTRL2.bit.EXT_SOC_SEQ1=0;      // 1 starts the signal from ADCSOC pin
+AdcRegs.ADCTRL2.bit.EVA_SOC_SEQ1=1;      // 1 allows the start trigger to be set to the same as the EVA trigger
+AdcRegs.ADCTRL2.bit.INT_MOD_SEQ1=0;      // 0 interrupts every EOS, 1 every other EOS (EOS = End of Sampling)
+AdcRegs.ADCTRL2.bit.INT_ENA_SEQ1=1;      // 1 enables the interrupt, 0 disables it
+AdcRegs.ADCTRL2.bit.SOC_SEQ1    =0;      // 0 clears the pending trigger, 1 allows a software trigger to start SEQ1
+AdcRegs.ADCTRL2.bit.RST_SEQ1    =1;      // 1 resets SEQ1 to its initial state
+AdcRegs.ADCTRL2.bit.EVB_SOC_SEQ =0;      // 1 starts the ADC via EVB signal (Only for cascaded mode)
+
+AdcRegs.ADCCHSELSEQ1.bit.CONV00 = 0xB;
+AdcRegs.ADCCHSELSEQ1.bit.CONV01 = 0xB;
+
+AdcRegs.ADCMAXCONV.bit.MAX_CONV1 = 0x001; // Maximum Conversion channel registers for SEQ1
+//AdcRegs.ADCMAXCONV.bit.MAX_CONV2 = 0x001; // Maximum Conversion channel registers for SEQ2 (If using cascaded mode, comment this line)
 
 
+
+AdcRegs.ADCST.bit.INT_SEQ1_CLR = 1; // 1 clears the interrupt, 0 has no effect
+//AdcRegs.ADCST.bit.INT_SEQ2_CLR = 1; // 1 clears the interrupt, 0 has no effect
+
+}
+
+void ejerciciolab5_readADC_runmotor(void){
+
+}
 

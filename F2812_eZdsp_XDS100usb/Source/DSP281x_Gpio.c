@@ -54,13 +54,12 @@ void InitGpio(void)
      //CA ==CAP1_QEP1
      //CB ==CAP2_QEP2
      //CI ==CAP3_QEPI1
-     GpioMuxRegs.GPBDIR.bit.GPIOB2=1;        // 1=output
-     GpioMuxRegs.GPBDIR.bit.GPIOB3=1;        // 1=output
-     GpioMuxRegs.GPBDIR.bit.GPIOB4=0;        // 0=input white button S1
-     GpioMuxRegs.GPBDIR.bit.GPIOB5=0;        // 0=input red switch S3-1
-     GpioMuxRegs.GPBDIR.bit.GPIOB6=0;        // 0=input red switch S3-2
-     GpioMuxRegs.GPBDIR.bit.GPIOB7=0;        // 0=input red switch S3-3
-
+     GpioMuxRegs.GPBDIR.bit.GPIOB2  =1;        // 1=output
+     GpioMuxRegs.GPBDIR.bit.GPIOB3  =1;        // 1=output
+     GpioMuxRegs.GPBDIR.bit.GPIOB4  =0;        // 0=input white button S1
+     GpioMuxRegs.GPBDIR.bit.GPIOB5  =0;        // 0=input red switch S3-1
+     GpioMuxRegs.GPBDIR.bit.GPIOB6  =0;        // 0=input red switch S3-2
+     GpioMuxRegs.GPBDIR.bit.GPIOB7  =0;        // 0=input red switch S3-3
 
      GpioMuxRegs.GPBQUAL.bit.QUALPRD=8;	// Input qualifier enabled with period 8
      GpioDataRegs.GPBCLEAR.bit.GPIOB2=0x1;

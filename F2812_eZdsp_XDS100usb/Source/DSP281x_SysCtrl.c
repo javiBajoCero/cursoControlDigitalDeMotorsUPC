@@ -205,7 +205,7 @@ void InitPeripheralClocks(void)
    SysCtrlRegs.PCLKCR.bit.MCBSPENCLK=0;
    SysCtrlRegs.PCLKCR.bit.SPIENCLK=0;
    SysCtrlRegs.PCLKCR.bit.ECANENCLK=0;
-   SysCtrlRegs.PCLKCR.bit.ADCENCLK=0;
+   SysCtrlRegs.PCLKCR.bit.ADCENCLK=1;//1 enable - 0 disable
    EDIS;
 }
 
