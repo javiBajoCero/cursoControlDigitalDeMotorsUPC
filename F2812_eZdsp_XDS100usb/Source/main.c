@@ -34,7 +34,7 @@ void main(void)
     // The PIE vector table is initialized with pointers to shell Interrupt
     // Service Routines (ISR).  The shell routines are found in DSP28_DefaultIsr.c.
     // Insert user specific ISR code in the appropriate shell ISR routine in
-    // the DSP28_DefaultIsr.c file.+
+    // the DSP28_DefaultIsr.c file.
 
     // Disable and clear all CPU interrupts:
     DINT;
@@ -69,7 +69,6 @@ void main(void)
     //enableinterruptTIM0(2000000);//2 seconds =0,5Hz
     setupForDACexercice();
     setupForPWM();
-    setupforADC();
     _iq19 speed=_IQ19(0.1);
     for(;;)
     {
@@ -78,8 +77,7 @@ void main(void)
        //ejercicio2_cochefantastico();
        //ejercicio3_contadorbinarioboton();
        //ejercicio4_secretpassword();
-       //ejerciciolab4_10turns_wait2000_changedirection(&speed);
-        ejerciciolab5_readADC_runmotor();
+       ejerciciolab4_10turns_wait2000_changedirection(&speed);
     }
 
 }

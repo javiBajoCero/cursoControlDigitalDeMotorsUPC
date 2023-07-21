@@ -63,9 +63,6 @@ void runmotorpwm_PU(_iq run);
 void runmotorpwm_rawuint16(Uint16 run);
 void runmotorpwm_PUiq19(_iq19 run);
 
-#define ADC_usDELAY  8000L
-#define ADC_usDELAY2 20L
-
 typedef enum{
     OFF =(Uint16)0,
     ON  =(Uint16)1
@@ -84,6 +81,3 @@ extern ON_OFF_enum ONOFF;
 
 void disableMotorafterXturns(Uint32 X,_iq19 speed_pu);
 void ejerciciolab4_10turns_wait2000_changedirection(_iq19 *speed);
-
-void setupforADC(void);
-void ejerciciolab5_readADC_runmotor(void);
