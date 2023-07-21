@@ -38,6 +38,11 @@ interrupt void interrupt_ADC(void){
     alphaP1=_IQ19mpyI32(_IQ19(1.0),averagedP1value);
     alphaP1-=ADCminreading;
     alphaP1=_IQ19div(alphaP1,ADCspanreading);
+    if(alphaP1>_IQ19(1.0)){
+        alphaP1=_IQ19(1.0);
+    }else if(alphaP1<_IQ19(0.0)){
+        alphaP1=_IQ19(0.0);
+    }
     AdcRegs.ADCST.bit.INT_SEQ1_CLR = 1;
     PieCtrlRegs.PIEACK.all = PIEACK_GROUP1;
 }

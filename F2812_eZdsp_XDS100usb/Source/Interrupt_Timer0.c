@@ -30,7 +30,11 @@ interrupt void interrupt_timer0(void){
 //        QEPricksregister=0;
 //    }
 
-                                    //reset counter for next time
 
-    PieCtrlRegs.PIEACK.all= PIEACK_GROUP1;
+//
+// outputting alphaP1 troug DAC
+//
+    DAC_envia(&dacstruct);
+
+    PieCtrlRegs.PIEACK.all= PIEACK_GROUP1; //reset counter for next time
 }

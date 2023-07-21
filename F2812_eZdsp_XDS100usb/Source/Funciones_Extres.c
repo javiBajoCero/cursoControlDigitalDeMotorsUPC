@@ -210,7 +210,7 @@ void enableinterruptTIM0(float period){
 void setupForDACexercice(void){
     DAC_inici();
 
-    dacstruct.A.Data= (unsigned long *)&rampa;
+    dacstruct.A.Data= (unsigned long *)&alphaP1;
     dacstruct.A.Guany=1<<8;//por algun motivo que no entendí bien, al usar _iq19 con este dac se descartan los 8 primeros bits.
     dacstruct.A.Offset=0;
 
@@ -300,6 +300,8 @@ void setupForADC(void){//https://www.youtube.com/watch?v=gCJA_am1-0U&ab_channel=
     IER |= M_INT1;                              //Enable group X of interrupts:
 }
 
+
+Uint32  AlphaP1_32bit=0;
 
 void ejerciciolab5_ADCopenloop(){
 
