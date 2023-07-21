@@ -280,6 +280,28 @@ void ejerciciolab4_10turns_wait2000_changedirection(_iq19 * speed){
     }
 }
 
+//enabling clocks and setting up ADC
+void setupForADC(void){//https://www.youtube.com/watch?v=gCJA_am1-0U&ab_channel=Controller%27sknowledge
+    DINT;                                       // Disable global interrupts:
+
+    EALLOW;                                     //enable to write in protected area
+    SysCtrlRegs.PCLKCR.bit.ADCENCLK=1;          //enables ADC peripheral clock
+    PieVectTable.ADCINT = &interrupt_ADC;       //Address the interrupt vector to the desired function
+    EDIS;
+
+    EINT;                                        // Enable global interrupts:
+
+    //Allow next interrupt service (write before leaving the interruption routine)
+    PieCtrlRegs.PIEACK.bit.ACK1=1;
+    //arranca el ADC
+    InitAdc();
+
+    PieCtrlRegs.PIEIER1.bit.INTx6=1;            //Enable interrupt Y of group X. //1=enable 0=disable
+    IER |= M_INT1;                              //Enable group X of interrupts:
+
+
+
+}
 
 
 

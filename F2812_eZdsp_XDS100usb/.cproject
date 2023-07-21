@@ -74,7 +74,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="Linker command files/F2812_EzDSP_RAM_lnk.cmd|Linker command files/2812_RAM_lnk.cmd|Source/DSP281x_XintfBootReset.asm|Source/DSP281x_SWPrioritizedPieVect.c|Source/DSP281x_SWPrioritizedDefaultIsr.c|Source/DSP281x_CSMPasswords.asm" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="Linker command files/2812_RAM_lnk.cmd|Linker command files/F2812_EzDSP_RAM_lnk.cmd|Source/DSP281x_XintfBootReset.asm|Source/DSP281x_SWPrioritizedPieVect.c|Source/DSP281x_SWPrioritizedDefaultIsr.c|Source/DSP281x_CSMPasswords.asm" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>

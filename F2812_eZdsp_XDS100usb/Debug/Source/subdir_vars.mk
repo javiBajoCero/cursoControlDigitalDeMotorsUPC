@@ -32,6 +32,7 @@ C_SRCS += \
 ../Source/Dec_Ini_Vars.c \
 ../Source/Funciones_Extres.c \
 ../Source/Interrupt_Timer0.c \
+../Source/interruptsADC.c \
 ../Source/main.c 
 
 C_DEPS += \
@@ -56,6 +57,7 @@ C_DEPS += \
 ./Source/Dec_Ini_Vars.d \
 ./Source/Funciones_Extres.d \
 ./Source/Interrupt_Timer0.d \
+./Source/interruptsADC.d \
 ./Source/main.d 
 
 OBJS += \
@@ -83,6 +85,7 @@ OBJS += \
 ./Source/Dec_Ini_Vars.obj \
 ./Source/Funciones_Extres.obj \
 ./Source/Interrupt_Timer0.obj \
+./Source/interruptsADC.obj \
 ./Source/main.obj 
 
 ASM_DEPS += \
@@ -115,6 +118,7 @@ OBJS__QUOTED += \
 "Source\Dec_Ini_Vars.obj" \
 "Source\Funciones_Extres.obj" \
 "Source\Interrupt_Timer0.obj" \
+"Source\interruptsADC.obj" \
 "Source\main.obj" 
 
 C_DEPS__QUOTED += \
@@ -139,6 +143,7 @@ C_DEPS__QUOTED += \
 "Source\Dec_Ini_Vars.d" \
 "Source\Funciones_Extres.d" \
 "Source\Interrupt_Timer0.d" \
+"Source\interruptsADC.d" \
 "Source\main.d" 
 
 ASM_DEPS__QUOTED += \
@@ -168,6 +173,7 @@ C_SRCS__QUOTED += \
 "../Source/Dec_Ini_Vars.c" \
 "../Source/Funciones_Extres.c" \
 "../Source/Interrupt_Timer0.c" \
+"../Source/interruptsADC.c" \
 "../Source/main.c" 
 
 ASM_SRCS__QUOTED += \

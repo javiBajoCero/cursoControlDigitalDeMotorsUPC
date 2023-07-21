@@ -22,6 +22,7 @@
 "./Source/Dec_Ini_Vars.obj"
 "./Source/Funciones_Extres.obj"
 "./Source/Interrupt_Timer0.obj"
+"./Source/interruptsADC.obj"
 "./Source/main.obj"
 "../Libraries/IQmath.lib"
 "../Linker command files/2812_IQmath_lnk.cmd"

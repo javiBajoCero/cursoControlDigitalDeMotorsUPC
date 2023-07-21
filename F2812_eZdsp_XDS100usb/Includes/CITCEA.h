@@ -54,7 +54,7 @@ void ejercicio2_cochefantastico(void);
 void ejercicio3_contadorbinarioboton(void);
 void ejercicio4_secretpassword(void);
 
-interrupt void interrupt_timer0(void);
+extern interrupt void interrupt_timer0(void);
 void enableinterruptTIM0(float period);
 void setupForDACexercice(void);
 
@@ -80,4 +80,8 @@ extern _iq19 alpha;
 extern ON_OFF_enum ONOFF;
 
 void disableMotorafterXturns(Uint32 X,_iq19 speed_pu);
+
 void ejerciciolab4_10turns_wait2000_changedirection(_iq19 *speed);
+
+void setupForADC(void);
+extern interrupt void interrupt_ADC(void);

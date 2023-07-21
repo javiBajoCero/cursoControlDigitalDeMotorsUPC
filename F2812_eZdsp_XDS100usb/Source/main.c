@@ -69,7 +69,8 @@ void main(void)
     //enableinterruptTIM0(2000000);//2 seconds =0,5Hz
     setupForDACexercice();
     setupForPWM();
-    _iq19 speed=_IQ19(0.1);
+    setupForADC();
+    _iq19 ejercicio4_speed=_IQ19(0.1);
     for(;;)
     {
 
@@ -77,7 +78,7 @@ void main(void)
        //ejercicio2_cochefantastico();
        //ejercicio3_contadorbinarioboton();
        //ejercicio4_secretpassword();
-       ejerciciolab4_10turns_wait2000_changedirection(&speed);
+       ejerciciolab4_10turns_wait2000_changedirection(&ejercicio4_speed);
     }
 
 }
