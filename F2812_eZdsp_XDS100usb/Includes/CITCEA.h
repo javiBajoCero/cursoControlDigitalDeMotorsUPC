@@ -85,3 +85,6 @@ void ejerciciolab4_10turns_wait2000_changedirection(_iq19 *speed);
 
 void setupForADC(void);
 extern interrupt void interrupt_ADC(void);
+
+extern _iq19 alphaP1;
+void ejerciciolab5_ADCopenloop();

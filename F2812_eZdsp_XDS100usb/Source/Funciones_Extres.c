@@ -298,8 +298,21 @@ void setupForADC(void){//https://www.youtube.com/watch?v=gCJA_am1-0U&ab_channel=
 
     PieCtrlRegs.PIEIER1.bit.INTx6=1;            //Enable interrupt Y of group X. //1=enable 0=disable
     IER |= M_INT1;                              //Enable group X of interrupts:
+}
 
 
+void ejerciciolab5_ADCopenloop(){
+
+    _iq19 upperlimit=_IQ19(0.7);
+    _iq19 lowerlimit=_IQ19(0.0);
+
+    if(alphaP1>upperlimit){
+        alpha=upperlimit;
+    }else if(alphaP1<lowerlimit){
+        alpha=lowerlimit;
+    }else{
+        alpha=alphaP1;
+    }
 
 }
 

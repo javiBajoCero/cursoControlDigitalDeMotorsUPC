@@ -70,7 +70,7 @@ void main(void)
     setupForDACexercice();
     setupForPWM();
     setupForADC();
-    _iq19 ejercicio4_speed=_IQ19(0.1);
+    //_iq19 ejercicio4_speed=_IQ19(0.1);
     for(;;)
     {
 
@@ -78,7 +78,8 @@ void main(void)
        //ejercicio2_cochefantastico();
        //ejercicio3_contadorbinarioboton();
        //ejercicio4_secretpassword();
-       ejerciciolab4_10turns_wait2000_changedirection(&ejercicio4_speed);
+       //ejerciciolab4_10turns_wait2000_changedirection(&ejercicio4_speed);
+       ejerciciolab5_ADCopenloop();
     }
 
 }

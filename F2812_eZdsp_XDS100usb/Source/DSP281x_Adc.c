@@ -58,7 +58,7 @@ void InitAdc(void)
 	AdcRegs.ADCTRL2.bit.EVA_SOC_SEQ1    =1; // 1 allows the start trigger to be set to the same as the EVA trigger
 	AdcRegs.ADCTRL2.bit.INT_MOD_SEQ1    =0; // 0 interrupts every EOS, 1 every other EOS (EOS = End of Sampling)
 	AdcRegs.ADCTRL2.bit.INT_ENA_SEQ1    =1; // 1 enables the interrupt, 0 disables it
-	AdcRegs.ADCTRL2.bit.SOC_SEQ1        =1; // 0 clears the pending trigger, 1 allows a software trigger to start SEQ1
+	AdcRegs.ADCTRL2.bit.SOC_SEQ1        =1; // 1 allows a software trigger to start SEQ1
 	AdcRegs.ADCTRL2.bit.RST_SEQ1        =1; // 1 resets SEQ1 to its initial state
 
 	AdcRegs.ADCCHSELSEQ1.bit.CONV00     =0xB;
